@@ -1,17 +1,80 @@
-type Queue {
+scalar GraphQLDate
+
+enum QueueStatusType {
+    Open
+    Closed
+}
+
+enum RecordStatusType {
+    Waiting
+    Served
+}
+
+# Issue -> Record
+# IssueTable -> Queue
+
+type Record {
     _id: ID!
     id: Int!
-    title: String!
-    owner: User!
-    description: String
-    max_participants: Int
+    status: RecordStatusType!
+    person: User
+    created: GraphQLDate!
+    wait: Int
+    # description: String
+}
+
+type User {
+  signedIn: Boolean!
+  givenName: String
+  name: String
+  email: String
+}
+
+input RecordInputs {
+    status: RecordStatusType = Waiting
+    person: User  # if not signed in, input name String and email String
+    # description: String
+}
+
+input QueueInput {
 
 }
 
-type QueueInputs {
-    title: String!
-    owner: User!
+"""Inputs for issueUpdate: all are optional. Whichever is specified will
+be set to the given value, undefined fields will remain unmodified."""
+input IssueUpdateInputs {
+    title: String
+    status: StatusType
+    owner: String
+    effort: Int
+    due: GraphQLDate
     description: String
-    max_participants: Int
+}
 
+##### Top level declarations
+
+type Query {
+    about: String!
+    user: User!
+    issueList(
+        status: StatusType
+        effortMin: Int
+        effortMax: Int
+        search: String
+        page: Int = 1
+    ): IssueListWithPages
+    issue(id: Int!): Issue!
+    issueCounts(
+        status: StatusType
+        effortMin: Int
+        effortMax: Int
+    ): [IssueCounts!]!
+}
+
+type Mutation {
+    setAboutMessage(message: String!): String
+    issueAdd(issue: IssueInputs!): Issue!
+    issueUpdate(id: Int!, changes: IssueUpdateInputs!): Issue!
+    issueDelete(id: Int!): Boolean!
+    issueRestore(id: Int!): Boolean!
 }
