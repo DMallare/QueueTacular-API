@@ -13,6 +13,7 @@ enum RecordStatusType {
 # Issue -> Record
 # IssueTable -> Queue
 
+# Person (Record) in the queue
 type Record {
     _id: ID!
     id: Int!
@@ -20,10 +21,28 @@ type Record {
     person: User
     created: GraphQLDate!
     wait: Int
-    # description: String
+    description: String
+}
+
+
+type Queue {
+    _id: ID!
+    id: Int!
+    title: String!
+    status: QueueStatusType!
+    owner: SignedInUser!
+    description: String
+    maxParticipants: Int
+    maxWaitTime: Int
 }
 
 type User {
+  givenName: String
+  name: String
+  email: String
+}
+
+type SignedInUser {
   signedIn: Boolean!
   givenName: String
   name: String
@@ -33,7 +52,7 @@ type User {
 input RecordInputs {
     status: RecordStatusType = Waiting
     person: User  # if not signed in, input name String and email String
-    # description: String
+    description: String
 }
 
 input QueueInput {
@@ -55,26 +74,5 @@ input IssueUpdateInputs {
 
 type Query {
     about: String!
-    user: User!
-    issueList(
-        status: StatusType
-        effortMin: Int
-        effortMax: Int
-        search: String
-        page: Int = 1
-    ): IssueListWithPages
-    issue(id: Int!): Issue!
-    issueCounts(
-        status: StatusType
-        effortMin: Int
-        effortMax: Int
-    ): [IssueCounts!]!
-}
-
-type Mutation {
-    setAboutMessage(message: String!): String
-    issueAdd(issue: IssueInputs!): Issue!
-    issueUpdate(id: Int!, changes: IssueUpdateInputs!): Issue!
-    issueDelete(id: Int!): Boolean!
-    issueRestore(id: Int!): Boolean!
+    showQueue(title: String!): Queue
 }
