@@ -8,13 +8,14 @@ enum QueueStatusType {
 enum RecordStatusType {
     Waiting
     Served
+    Removed
 }
 
-# Issue -> Record
+# Issue -> QueueItem
 # IssueTable -> Queue
 
-# Person (Record) in the queue
-type Record {
+# Person (QueueItem) in the queue
+type QueueItem {
     _id: ID!
     id: Int!
     status: RecordStatusType!
@@ -24,55 +25,39 @@ type Record {
     description: String
 }
 
-
 type Queue {
     _id: ID!
     id: Int!
     title: String!
     status: QueueStatusType!
-    owner: SignedInUser!
+    owner: User!
     description: String
     maxParticipants: Int
     maxWaitTime: Int
+    items: [QueueItem]
 }
 
 type User {
-  givenName: String
-  name: String
-  email: String
-}
-
-type SignedInUser {
   signedIn: Boolean!
-  givenName: String
-  name: String
-  email: String
+  name: String!
+  email: String!
 }
 
-input RecordInputs {
-    status: RecordStatusType = Waiting
-    person: User  # if not signed in, input name String and email String
-    description: String
-}
+#
+#input QueueItemInput {
+#    status: RecordStatusType = Waiting
+#    person: User!
+#    description: String
+#}
 
-input QueueInput {
-
-}
-
-"""Inputs for issueUpdate: all are optional. Whichever is specified will
-be set to the given value, undefined fields will remain unmodified."""
-input IssueUpdateInputs {
-    title: String
-    status: StatusType
-    owner: String
-    effort: Int
-    due: GraphQLDate
-    description: String
-}
+#
+#input QueueInput {
+#}
 
 ##### Top level declarations
 
 type Query {
     about: String!
-    showQueue(title: String!): Queue
+    # showQueue(title: String!): String
+    showQueue: String
 }
