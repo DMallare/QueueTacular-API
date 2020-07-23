@@ -1,11 +1,11 @@
-scalar GraphQLDate
+# scalar GraphQLDate
 
 enum QueueStatusType {
     Open
     Closed
 }
 
-enum RecordStatusType {
+enum QueueItemStatusType {
     Waiting
     Served
     Removed
@@ -16,17 +16,17 @@ enum RecordStatusType {
 
 # Person (QueueItem) in the queue
 type QueueItem {
-    _id: ID!
+    # _id: ID!
     id: Int!
     status: RecordStatusType!
     person: User
-    created: GraphQLDate!
+    # created: GraphQLDate!
     wait: Int
     description: String
 }
 
 type Queue {
-    _id: ID!
+    # _id: ID!
     id: Int!
     title: String!
     status: QueueStatusType!
@@ -38,6 +38,7 @@ type Queue {
 }
 
 type User {
+  id: Int!
   signedIn: Boolean!
   name: String!
   email: String!
