@@ -58,6 +58,5 @@ type User {
 
 type Query {
     about: String!
-    # showQueue(title: String!): String
-    showQueue: String
+    showQueue(title: String!): String
 }

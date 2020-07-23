@@ -1,7 +1,7 @@
 {
-  "name": "zacharykatancik-book-api",
+  "name": "queue-management-system-api",
   "version": "1.0.0",
-  "description": "Pro MERN Stack (2nd Edition) API",
+  "description": "Queue management system",
   "main": "index.js",
   "engines": {
     "node": "10.x",
@@ -16,7 +16,7 @@
     "type": "git",
     "url": "https://github.ccs.neu.edu/NEU-CS5610-SU20/ZacharyKatancik-Book.git"
   },
-  "author": "Zachary Katancik",
+  "author": "Tim Gao, Zachary Katancik",
   "license": "ISC",
   "dependencies": {
     "apollo-server-express": "^2.3.3",
@@ -29,7 +29,8 @@
     "graphql": "^14.2.1",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.5.9",
-    "nodemon": "^1.19.4"
+    "nodemon": "^1.19.4",
+    "notarealdb": "0.2.2"
   },
   "devDependencies": {
     "eslint": "^5.16.0",
