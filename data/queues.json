@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "title": "Doctor's visit",
+    "status": "Open",
+    "owner":   {
+      "id": 1,
+      "signedIn": true,
+      "email": "alice@facegle.io",
+      "password": "alice123"
+    },
+    "description": "Hi thanks bye!",
+    "maxParticipants": 12,
+    "maxWaitTime": 90,
+    "items": [
+      {
+        "id": 1,
+        "status": "Served",
+        "personId": "fHY8NmlPn",
+        "wait": 25,
+        "description": "queue item description one."
+      },
+      {
+        "id": 2,
+        "status": "Waiting",
+        "person":   {
+          "id": 3,
+          "signedIn": true,
+          "email": "eric@goobook.co",
+          "password": "eric123"
+        },
+        "wait": 999,
+        "description": "queue item description two"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Disneyland",
+    "status": "Closed",
+    "owner":   {
+      "id": 2,
+      "signedIn": false,
+      "email": "bob@goobook.co",
+      "password": "bob123"
+    },
+    "description": "The lines are too long!",
+    "maxParticipants": 10,
+    "maxWaitTime": 999,
+    "items": [
+      {
+        "id": 3,
+        "status": "Removed",
+        "person": {
+
+        },
+        "wait": 0,
+        "description": "queue item description three"
+      },
+      {
+        "id": 4,
+        "status": "Removed",
+        "person": {
+          "id": 2,
+          "signedIn": false,
+          "email": "bob@goobook.co",
+          "password": "bob123"
+        },
+        "wait": 0,
+        "description": "queue item description three"
+      }
+    ]
+  }
+]

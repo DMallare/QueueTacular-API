@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "signedIn": true,
+    "email": "alice@facegle.io",
+    "password": "alice123"
+  },
+  {
+    "id": 2,
+    "signedIn": false,
+    "email": "bob@goobook.co",
+    "password": "bob123"
+  },
+  {
+    "id": 3,
+    "signedIn": true,
+    "email": "eric@goobook.co",
+    "password": "eric123"
+  }
+]
