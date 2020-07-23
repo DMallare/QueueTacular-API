@@ -3,7 +3,7 @@ const db = require('./db.js');
 
 const resolvers = {
   Query: {
-    showQueue: (root, { title }) => db.queues.get(title),
+    showQueue: (root, { id }) => db.queues.get(id),
   },
 };
 
