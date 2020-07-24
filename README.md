@@ -19,6 +19,21 @@ mutation {
  
 }
 
+#### Update a queue
+mutation{
+  queueUpdate(id: 3, changes:{
+    maxWaitTime: 60
+    }){
+      id
+      title
+      owner
+      description
+      status
+      maxParticipants
+      maxWaitTime
+  }
+}
+
 #### show a queue
 query showQueue($id: Int!) {
   showQueue(id: $id) {
