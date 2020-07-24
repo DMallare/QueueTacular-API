@@ -1,20 +1,16 @@
-const db = require('./db.js');
-// const queue = require('./queue.js')
+const { showAll, showQueue } = require('./queue.js');
+
 
 const resolvers = {
   Query: {
-    showQueue: (_, { id }) => db.queues.get(id),
+    showQueue,
+    showAll,
   },
 
   Mutation: {
-    addQueue: (_, { title, status, description }) => {
-      const newID = db.queues.create({});
-      db.queues.update({
-        id: newID, status, title, description,
-      });
-      return db.queues.get(newID);
-    },
-    /*
+    // addQueue: addQueue,
+  },
+  /*
     addItem: (_, { item }) => {
       db.queues.update({
         id: item.id,
@@ -26,8 +22,6 @@ const resolvers = {
       return updatedQueue;
     },
     */
-  },
-
 };
 
 module.exports = { resolvers };

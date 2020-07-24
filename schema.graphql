@@ -17,8 +17,8 @@ enum QueueItemStatusType {
 
 # Person (QueueItem) in the queue
 type QueueItem {
-    # _id: ID!
-    id: ID!
+    _id: ID!
+    id: Int!
     status: QueueItemStatusType!
     name: String
     # created: GraphQLDate!
@@ -27,12 +27,12 @@ type QueueItem {
 }
 
 type Queue {
-    # _id: ID!
-    # notarealdb generates a String ID
-    id: ID!
+    _id: ID!
+    id: Int!
     title: String!
     status: QueueStatusType!
-    owner: User!
+    # Changing owner to String (owner name)
+    owner: String!
     description: String
     maxParticipants: Int
     maxWaitTime: Int
@@ -73,7 +73,7 @@ input QueueInput {
 
 type Query {
   about: String!
-  # notarealdb generates a String ID
+  showAll: [Queue!]
   showQueue(id: Int!): Queue
 }
 
