@@ -18,7 +18,7 @@ db.queues.remove({});
 
 const queuesDB = [
   {
-    id: 'SJRAZDu_z',
+    id: 1,
     title: "Doctor's visit",
     status: 'Open',
     owner: {
@@ -49,7 +49,7 @@ const queuesDB = [
     ],
   },
   {
-    id: '*rJKAbDd_z',
+    id: 2,
     title: 'Disneyland',
     status: 'Closed',
     owner: {
