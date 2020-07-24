@@ -22,18 +22,15 @@ maxParticipants: Int
 maxWaitTime: Int
 */
 
-async function addQueue(_, { queue }) {
+async function addQueue(_, { newQueue }) {
   const db = getDb();
   // validate(issue);
 
-  const newQueue = Object.assign({ }, queue);
-  newQueue.id = await getNextSequence('queues');
-  newQueue.title = queue.title;
-  newQueue.description = queue.description;
-  newQueue.owner = queue.owner;
-  newQueue.items = [];
+  const queueAdd = Object.assign({ }, newQueue);
+  queueAdd.id = await getNextSequence('queues');
+  queueAdd.items = [];
 
-  const result = await db.collection('queues').insertOne(newQueue);
+  const result = await db.collection('queues').insertOne(queueAdd);
   const savedQueue = await db.collection('queues')
     .findOne({ _id: result.insertedId });
   return savedQueue;
