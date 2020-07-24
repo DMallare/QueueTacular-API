@@ -15,12 +15,13 @@ enum QueueItemStatusType {
 # Issue -> QueueItem
 # IssueTable -> Queue
 
-# Person (QueueItem) in the queue
+# Person (QueueItem) in the queue -- add a phone number down the road??
 type QueueItem {
     _id: ID!
     id: Int!
     status: QueueItemStatusType!
-    name: String
+    name: String!
+    email: String!
     # created: GraphQLDate!
     wait: Int
     description: String
@@ -54,11 +55,13 @@ input UserInput {
 
 
 input QueueItemInput {
+  # ID of the queue that we want to add to
+  id: Int!
   status: QueueItemStatusType = Waiting
-  # person: UserInput!
+  name: String!
+  email: String!
   description: String
 }
-
 
 
 input QueueInput {
@@ -68,6 +71,21 @@ input QueueInput {
   description: String
   maxParticipants: Int
   maxWaitTime: Int
+}
+
+
+input ItemUpdateInput {
+  queueID: Int!
+  itemID: Int!
+  status: QueueItemStatusType
+  name: String
+  description: String
+  email: String
+}
+
+
+input QueueUpdateInput {
+
 }
 
 ##### Top level declarations
@@ -81,6 +99,12 @@ type Query {
 type Mutation {
   # Creates a new queue
   addQueue(newQueue: QueueInput!): Queue
-  # adds an item to a specific queue
+  # TODO- adds an item to a specific queue - Nachi
   addItem(item: QueueItemInput!): QueueItem
+  # TODO - Edit operations
+  itemUpdate(item: ItemUpdateInput!): QueueItem
+  queueUpdate(queue: QueueUpdateInput): Queue
+  # TODO - Delete operations - Tim
+  itemDelete(id: Int!): Boolean
+  queueDelete(id: Int!): Boolean
 }
