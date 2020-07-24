@@ -1,10 +1,11 @@
 [
   {
-    "id": "1",
-    "title": "Doctor's visit",
+    "id": "SJRAZDu_z",
+    "title": "Doctors visit",
     "status": "Open",
     "owner": {
-      "id": 1,
+      "id": "fHY8NmlPn",
+      "name": "Alice Keagle",
       "signedIn": true,
       "email": "alice@facegle.io",
       "password": "alice123"
@@ -14,32 +15,28 @@
     "maxWaitTime": 90,
     "items": [
       {
-        "id": 1,
+        "id": "7Fk*>mb0p",
         "status": "Served",
-        "personId": "fHY8NmlPn",
+        "name": "George",
         "wait": 25,
         "description": "queue item description one."
       },
       {
-        "id": 2,
+        "id": "2qw*llmb7",
         "status": "Waiting",
-        "person": {
-          "id": 3,
-          "signedIn": true,
-          "email": "eric@goobook.co",
-          "password": "eric123"
-        },
+        "name": "Alex",
         "wait": 999,
         "description": "queue item description two"
       }
     ]
   },
   {
-    "id": "2",
+    "id": "*rJKAbDd_z",
     "title": "Disneyland",
     "status": "Closed",
     "owner": {
-      "id": 2,
+      "id": "28&m0NNkl",
+      "name": "Edmond Edmond",
       "signedIn": false,
       "email": "bob@goobook.co",
       "password": "bob123"
@@ -49,33 +46,19 @@
     "maxWaitTime": 999,
     "items": [
       {
-        "id": 3,
-        "status": "Removed",
-        "person": {},
-        "wait": 0,
+        "id": "2qw*llmb7",
+        "status": "Serving",
+        "name": "Mary Dairy",
+        "wait": 999,
         "description": "queue item description three"
       },
       {
-        "id": 4,
+        "id": "mll0f&*^",
         "status": "Removed",
-        "person": {
-          "id": 2,
-          "signedIn": false,
-          "email": "bob@goobook.co",
-          "password": "bob123"
-        },
+        "name": "Crayon Shin",
         "wait": 0,
         "description": "queue item description three"
       }
     ]
-  },
-  {
-    "id": "SkNFe0DxD"
-  },
-  {
-    "id": "BkP7-Rvlw"
-  },
-  {
-    "id": "BJ3QfCwlP"
   }
 ]

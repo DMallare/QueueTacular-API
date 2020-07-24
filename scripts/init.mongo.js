@@ -12,51 +12,100 @@
 /* global db print */
 /* eslint no-restricted-globals: "off" */
 
-db.issues.remove({});
-db.deleted_issues.remove({});
+db.queues.remove({});
+// TODO: add new collection for deleted queues
+// db.deleted_issues.remove({});
 
-const issuesDB = [
+const queuesDB = [
   {
-    id: 1,
-    status: 'New',
-    owner: 'Ravan',
-    effort: 5,
-    created: new Date('2019-01-15'),
-    due: undefined,
-    title: 'Error in console when clicking Add',
-    description: 'Steps to recreate the problem:'
-      + '\n1. Refresh the browser.'
-      + '\n2. Select "New" in the filter'
-      + '\n3. Refresh the browser again. Note the warning in the console:'
-      + '\n   Warning: Hash history cannot PUSH the same path; a new entry'
-      + '\n   will not be added to the history stack'
-      + '\n4. Click on Add.'
-      + '\n5. There is an error in console, and add doesn\'t work.',
+    id: 'SJRAZDu_z',
+    title: "Doctor's visit",
+    status: 'Open',
+    owner: {
+      id: 'fHY8NmlPn',
+      name: 'Alice Keagle',
+      signedIn: true,
+      email: 'alice@facegle.io',
+      password: 'alice123',
+    },
+    description: 'Hi thanks bye!',
+    maxParticipants: 12,
+    maxWaitTime: 90,
+    items: [
+      {
+        id: '7Fk*>mb0p',
+        status: 'Served',
+        name: 'George',
+        wait: 25,
+        description: 'queue item description one.',
+      },
+      {
+        id: '2qw*llmb7',
+        status: 'Waiting',
+        name: 'Alex',
+        wait: 999,
+        description: 'queue item description two',
+      },
+    ],
   },
   {
-    id: 2,
-    status: 'Assigned',
-    owner: 'Eddie',
-    effort: 14,
-    created: new Date('2019-01-16'),
-    due: new Date('2019-02-01'),
-    title: 'Missing bottom border on panel',
-    description: 'There needs to be a border in the bottom in the panel'
-      + ' that appears when clicking on Add',
+    id: '*rJKAbDd_z',
+    title: 'Disneyland',
+    status: 'Closed',
+    owner: {
+      id: '28&m0NNkl',
+      name: 'Edmond Edmond',
+      signedIn: false,
+      email: 'bob@goobook.co',
+      password: 'bob123',
+    },
+    description: 'The lines are too long!',
+    maxParticipants: 10,
+    maxWaitTime: 999,
+    items: [
+      {
+        id: '2qw*llmb7',
+        status: 'Serving',
+        name: 'Mary Dairy',
+        wait: 999,
+        description: 'queue item description three',
+      },
+      {
+        id: 'mll0f&*^',
+        status: 'Removed',
+        name: 'Crayon Shin',
+        wait: 0,
+        description: 'queue item description three',
+      },
+    ],
   },
 ];
 
-db.issues.insertMany(issuesDB);
-const count = db.issues.count();
-print('Inserted', count, 'issues');
+db.queues.insertMany(queuesDB);
+const count = db.queues.count();
+print('Inserted', count, 'queues');
 
-db.counters.remove({ _id: 'issues' });
-db.counters.insert({ _id: 'issues', current: count });
+db.counters.remove({ _id: 'queues' });
+db.counters.insert({ _id: 'queues', current: count });
 
-db.issues.createIndex({ id: 1 }, { unique: true });
-db.issues.createIndex({ status: 1 });
-db.issues.createIndex({ owner: 1 });
-db.issues.createIndex({ created: 1 });
-db.issues.createIndex({ title: 'text', description: 'text' });
+db.queues.createIndex({ id: 1 }, { unique: true });
+db.queues.createIndex({ status: 1 });
+db.queues.createIndex({ owner: 1 });
+db.queues.createIndex({ title: 'text', description: 'text' });
 
-db.deleted_issues.createIndex({ id: 1 }, { unique: true });
+// db.deleted_issues.createIndex({ id: 1 }, { unique: true });
+
+// TODO: add new collection for deleted queues
+// db.deleted_issues.createIndex({ id: 1 }, { unique: true });
+
+// type Queue {
+//   # _id: ID!
+//   id: ID!
+//   title: String!
+//   status: QueueStatusType!
+//   owner: User!
+//   description: String
+//   maxParticipants: Int
+//   maxWaitTime: Int
+//   items: [QueueItem]
+// }
