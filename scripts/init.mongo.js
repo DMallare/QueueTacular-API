@@ -14,7 +14,7 @@
 
 db.queues.remove({});
 // TODO: add new collection for deleted queues
-// db.deleted_issues.remove({});
+// db.deleted_queues.remove({});
 
 const queuesDB = [
   {
@@ -75,7 +75,7 @@ const queuesDB = [
         status: 'Removed',
         name: 'Crayon Shin',
         wait: 0,
-        description: 'queue item description three',
+        description: 'queue item description four',
       },
     ],
   },
@@ -93,7 +93,7 @@ db.queues.createIndex({ status: 1 });
 db.queues.createIndex({ owner: 1 });
 db.queues.createIndex({ title: 'text', description: 'text' });
 
-// db.deleted_issues.createIndex({ id: 1 }, { unique: true });
+// db.deleted_queues.createIndex({ id: 1 }, { unique: true });
 
 // TODO: add new collection for deleted queues
 // db.deleted_issues.createIndex({ id: 1 }, { unique: true });
