@@ -16,7 +16,7 @@
     "type": "git",
     "url": "https://github.ccs.neu.edu/NEU-CS5610-SU20/ZacharyKatancik-Book.git"
   },
-  "author": "Tim Gao, Zachary Katancik",
+  "author": "Tim Gao, Danielle Mallare, Nachiket Dani, & Zachary Katancik",
   "license": "ISC",
   "dependencies": {
     "apollo-server-express": "^2.3.3",
@@ -30,7 +30,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.5.9",
     "nodemon": "^1.19.4",
-    "notarealdb": "0.2.2"
+    "notarealdb": "^0.2.2"
   },
   "devDependencies": {
     "eslint": "^5.16.0",
