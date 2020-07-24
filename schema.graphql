@@ -85,7 +85,7 @@ input ItemUpdateInput {
 
 
 input QueueUpdateInput {
-  id: Int!
+  owner: String
   title: String
   status: QueueStatusType
   description: String
@@ -108,7 +108,7 @@ type Mutation {
   addItem(item: QueueItemInput!): QueueItem
   # TODO - Edit operations
   itemUpdate(item: ItemUpdateInput!): QueueItem
-  queueUpdate(queue: QueueUpdateInput): Queue
+  queueUpdate(id: Int!, changes: QueueUpdateInput!): Queue
   # TODO - Delete operations - Tim
   itemDelete(id: Int!): Boolean
   queueDelete(id: Int!): Boolean

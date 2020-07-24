@@ -13,15 +13,6 @@ async function showAll() {
   return queues;
 }
 
-/*
-owner: String!
-title: String!
-status: QueueStatusType = Open
-description: String
-maxParticipants: Int
-maxWaitTime: Int
-*/
-
 async function addQueue(_, { newQueue }) {
   const db = getDb();
   // validate(issue);
@@ -36,4 +27,18 @@ async function addQueue(_, { newQueue }) {
   return savedQueue;
 }
 
-module.exports = { showQueue, showAll, addQueue };
+async function queueUpdate(_, { id, changes }) {
+  const db = getDb();
+  if (changes.title || changes.status || changes.descripion
+      || changes.maxParticipants || changes.maxParticipants || changes.owner) {
+    const queue = await db.collection('queues').findOne({ id });
+    Object.assign(queue, changes);
+  }
+  await db.collection('queues').updateOne({ id }, { $set: changes });
+  const updatedQueue = await db.collection('queues').findOne({ id });
+  return updatedQueue;
+}
+
+module.exports = {
+  showQueue, showAll, addQueue, queueUpdate,
+};
