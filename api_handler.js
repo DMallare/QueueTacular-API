@@ -1,14 +1,14 @@
-const { showAll, showQueue } = require('./queue.js');
+const queue = require('./queue.js');
 
 
 const resolvers = {
   Query: {
-    showQueue,
-    showAll,
+    showQueue: queue.showQueue,
+    showAll: queue.showAll,
   },
 
   Mutation: {
-    // addQueue: addQueue,
+    addQueue: queue.addQueue,
   },
   /*
     addItem: (_, { item }) => {

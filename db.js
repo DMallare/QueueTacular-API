@@ -3,16 +3,6 @@ const { MongoClient } = require('mongodb');
 
 let db;
 
-/*
-const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://kay:myRealPassword@cluster0.mongodb.net/test?w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true });
-client.connect(err => {
-  const collection = client.db("test").collection("devices");
- // perform actions on the collection object
-  client.close();
-});
-*/
 
 async function connectToDb() {
   const url = process.env.DB_URL;
@@ -23,11 +13,21 @@ async function connectToDb() {
   db = client.db('queueSystem');
 }
 
+
+async function getNextSequence(name) {
+  const result = await db.collection('counters').findOneAndUpdate(
+    { _id: name },
+    { $inc: { current: 1 } },
+    { returnOriginal: false },
+  );
+  return result.value.current;
+}
+
 function getDb() {
   return db;
 }
 
-module.exports = { connectToDb, getDb };
+module.exports = { connectToDb, getNextSequence, getDb };
 
 /*
 const { DataStore } = require('notarealdb');

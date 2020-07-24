@@ -1,5 +1,4 @@
-const { getDb } = require('./db.js');
-
+const { getDb, getNextSequence } = require('./db.js');
 
 async function showQueue(_, { id }) {
   const db = getDb();
@@ -12,6 +11,32 @@ async function showAll() {
   const db = getDb();
   const queues = await db.collection('queues').find().toArray();
   return queues;
+}
+
+/*
+owner: String!
+title: String!
+status: QueueStatusType = Open
+description: String
+maxParticipants: Int
+maxWaitTime: Int
+*/
+
+async function addQueue(_, { queue }) {
+  const db = getDb();
+  // validate(issue);
+
+  const newQueue = Object.assign({ }, queue);
+  newQueue.id = await getNextSequence('queues');
+  newQueue.title = queue.title;
+  newQueue.description = queue.description;
+  newQueue.owner = queue.owner;
+  newQueue.items = [];
+
+  const result = await db.collection('queues').insertOne(newQueue);
+  const savedQueue = await db.collection('queues')
+    .findOne({ _id: result.insertedId });
+  return savedQueue;
 }
 
 /*
@@ -40,4 +65,4 @@ async function showAll() {
 };
 */
 
-module.exports = { showQueue, showAll };
+module.exports = { showQueue, showAll, addQueue };

@@ -62,6 +62,7 @@ input QueueItemInput {
 
 
 input QueueInput {
+  owner: String!
   title: String!
   status: QueueStatusType = Open
   description: String
@@ -78,6 +79,8 @@ type Query {
 }
 
 type Mutation {
+  # Creates a new queue
   addQueue(newQueue: QueueInput!): Queue
-  # addItem(item: QueueItemInput!): QueueItem
+  # adds an item to a specific queue
+  addItem(item: QueueItemInput!): QueueItem
 }
