@@ -73,7 +73,7 @@ input QueueInput {
 type Query {
   about: String!
   # notarealdb generates a String ID
-  showQueue(id: String!): Queue
+  showQueue(id: Int!): Queue
 }
 
 type Mutation {
