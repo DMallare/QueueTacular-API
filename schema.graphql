@@ -85,7 +85,12 @@ input ItemUpdateInput {
 
 
 input QueueUpdateInput {
-
+  id: Int!
+  title: String
+  status: QueueStatusType
+  description: String
+  maxWaitTime: Int
+  maxParticipants: Int
 }
 
 ##### Top level declarations
