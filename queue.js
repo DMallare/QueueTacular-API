@@ -124,5 +124,4 @@ module.exports = {
   deleteQueue,
   itemUpdate,
   deleteQueueItem,
-  remove,
 };
