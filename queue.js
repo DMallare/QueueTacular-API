@@ -39,18 +39,22 @@ async function queueUpdate(_, { id, changes }) {
   return updatedQueue;
 }
 
-async function itemUpdate(parent, { queueID, itemID, changes }) {
+/*
+async function itemUpdate(_, { queueID, itemID, changes }) {
   const db = getDb();
-  if (changes.name || changes.status || changes.descripion
-    || changes.email) {
-    const queue = await db.collection('queues').findOne({ queueID });
-    const item = await queue.items.find({ id: itemID });
-    Object.assign(item, changes);
+  if (changes.descripion) {
+    db.queues.updateOne(
+      { id: queueID },
+      {
+        $set: {
+          { 'items': itemID },
+          description: changes.descripion },
+      }
+    );
   }
-  await db.collection('queues').updateOne({ queueID }, { $set: parent.items[itemID] });
-  const updatedItem = await db.collection('queues').findOne({ queueID }).items[itemID];
-  return updatedItem;
 }
+*/
+
 
 module.exports = {
   showQueue,
