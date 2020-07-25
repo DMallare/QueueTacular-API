@@ -9,6 +9,7 @@ const resolvers = {
   Mutation: {
     addQueue: queue.addQueue,
     queueUpdate: queue.queueUpdate,
+    itemUpdate: queue.itemUpdate,
   },
 };
 

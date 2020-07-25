@@ -52,21 +52,21 @@ async function deleteQueue(_, { id }) {
   return false;
 }
 
-/*
+
 async function itemUpdate(_, { queueID, itemID, changes }) {
   const db = getDb();
-  if (changes.descripion) {
-    db.queues.updateOne(
-      { id: queueID },
-      {
-        $set: {
-          { 'items': itemID },
-          description: changes.descripion },
-      }
+  if (changes.description) {
+    await db.collection('queues').update(
+      { id: queueID, 'items.id': itemID },
+      { $set: { 'items.$.description': changes.description } },
     );
   }
+  const updatedItem = await db.collection('queues').findOne(
+    { id: queueID },
+    { $getElem: { 'items.id': itemID } },
+  );
+  return updatedItem;
 }
-*/
 
 
 module.exports = {
@@ -75,4 +75,5 @@ module.exports = {
   addQueue,
   queueUpdate,
   deleteQueue,
+  itemUpdate,
 };
