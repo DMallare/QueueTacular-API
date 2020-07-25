@@ -36,4 +36,8 @@ async function addQueue(_, { newQueue }) {
   return savedQueue;
 }
 
-module.exports = { showQueue, showAll, addQueue };
+async function addItem(_, { id, changes} ) {
+  const db = getDb();
+ }
+
+module.exports = { showQueue, showAll, addQueue, addItem };
