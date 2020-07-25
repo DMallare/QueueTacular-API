@@ -4,9 +4,9 @@
  * localhost:
  *   mongo issuetracker scripts/init.mongo.js
  * Atlas:
- *   mongo mongodb+srv://user:pwd@xxx.mongodb.net/issuetracker scripts/init.mongo.js
+ *   mongo mongodb+srv://user:pwd@xxx.mongodb.net/queueSystem scripts/init.mongo.js
  * MLab:
- *   mongo mongodb://user:pwd@xxx.mlab.com:33533/issuetracker scripts/init.mongo.js
+ *   mongo mongodb://user:pwd@xxx.mlab.com:33533/queueSystem scripts/init.mongo.js
  */
 
 /* global db print */
@@ -21,26 +21,20 @@ const queuesDB = [
     id: 1,
     title: "Doctor's visit",
     status: 'Open',
-    owner: {
-      id: 'fHY8NmlPn',
-      name: 'Alice Keagle',
-      signedIn: true,
-      email: 'alice@facegle.io',
-      password: 'alice123',
-    },
-    description: 'Hi thanks bye!',
+    owner: 'Dr. Dani',
+    description: 'Dr. Danis ENT office',
     maxParticipants: 12,
     maxWaitTime: 90,
     items: [
       {
-        id: '7Fk*>mb0p',
+        id: 1,
         status: 'Served',
         name: 'George',
         wait: 25,
         description: 'queue item description one.',
       },
       {
-        id: '2qw*llmb7',
+        id: 2,
         status: 'Waiting',
         name: 'Alex',
         wait: 999,
@@ -52,26 +46,20 @@ const queuesDB = [
     id: 2,
     title: 'Disneyland',
     status: 'Closed',
-    owner: {
-      id: '28&m0NNkl',
-      name: 'Edmond Edmond',
-      signedIn: false,
-      email: 'bob@goobook.co',
-      password: 'bob123',
-    },
+    owner: 'Donald Duck',
     description: 'The lines are too long!',
-    maxParticipants: 10,
+    maxParticipants: 100,
     maxWaitTime: 999,
     items: [
       {
-        id: '2qw*llmb7',
+        id: 1,
         status: 'Serving',
         name: 'Mary Dairy',
         wait: 999,
         description: 'queue item description three',
       },
       {
-        id: 'mll0f&*^',
+        id: 2,
         status: 'Removed',
         name: 'Crayon Shin',
         wait: 0,

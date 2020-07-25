@@ -75,8 +75,6 @@ input QueueInput {
 
 
 input ItemUpdateInput {
-  queueID: Int!
-  itemID: Int!
   status: QueueItemStatusType
   name: String
   description: String
@@ -107,7 +105,7 @@ type Mutation {
   # TODO- adds an item to a specific queue - Nachi
   addItem(item: QueueItemInput!): QueueItem
   # TODO - Edit operations
-  itemUpdate(item: ItemUpdateInput!): QueueItem
+  itemUpdate(queueID: Int!, itemID: Int! changes: ItemUpdateInput!): QueueItem
   queueUpdate(id: Int!, changes: QueueUpdateInput!): Queue
   # TODO - Delete operations - Tim
   itemDelete(id: Int!): Boolean
