@@ -1,6 +1,5 @@
 const queue = require('./queue.js');
 
-
 const resolvers = {
   Query: {
     showQueue: queue.showQueue,
@@ -10,19 +9,11 @@ const resolvers = {
   Mutation: {
     addQueue: queue.addQueue,
     addItem: queue.addItem,
+    queueUpdate: queue.queueUpdate,
+    itemUpdate: queue.itemUpdate,
+    deleteQueue: queue.deleteQueue,
+    deleteQueueItem: queue.deleteQueueItem,
   },
-  /*
-    addItem: (_, { item }) => {
-      db.queues.update({
-        id: item.id,
-        status: item.status,
-        // person: item.person,
-        description: item.description,
-      });
-      const updatedQueue = db.queues.get(item.id);
-      return updatedQueue;
-    },
-    */
 };
 
 module.exports = { resolvers };

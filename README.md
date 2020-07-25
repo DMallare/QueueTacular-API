@@ -19,6 +19,21 @@ mutation {
  
 }
 
+#### Update a queue
+mutation{
+  queueUpdate(id: 3, changes:{
+    maxWaitTime: 60
+    }){
+      id
+      title
+      owner
+      description
+      status
+      maxParticipants
+      maxWaitTime
+  }
+}
+
 #### show a queue
 query showQueue($id: Int!) {
   showQueue(id: $id) {
@@ -29,4 +44,18 @@ query showQueue($id: Int!) {
   }
 }
 
+#### Update an item in a specific queue
+mutation{
+  itemUpdate(queueID: 1, itemID: 2, changes:{
+    status: Waiting,
+    description: "description here..."
+    }){
+    // Not sure what goes in here.. its not working, TBA
+  }
+}
 
+
+### delete a queue
+mutation deleteQueueById {
+  deleteQueue(id: 1)
+}
