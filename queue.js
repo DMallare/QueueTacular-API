@@ -66,6 +66,16 @@ async function deleteQueue(_, { id }) {
   return false;
 }
 
+async function deleteQueueItem(_, { queueID, queueItemID }) {
+  const db = getDb();
+  // const queue = await db.collection('queues').
+  //   findOne({ id: queueID }, { items: { $elemMatch: { id: 2 } } });
+  // if (!queue) return false;
+  const result = await db.collection('queues').update({ id: queueID }, { $pull: { items: { id: queueItemID } } });
+  console.log(result.result.nModified);
+  return result.result.nModified === 1;
+}
+
 /*
 async function itemUpdate(_, { queueID, itemID, changes }) {
   const db = getDb();
@@ -89,4 +99,5 @@ module.exports = {
   addQueue,
   queueUpdate,
   deleteQueue,
+  deleteQueueItem,
 };

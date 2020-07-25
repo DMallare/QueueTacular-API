@@ -10,6 +10,7 @@ const resolvers = {
     addQueue: queue.addQueue,
     queueUpdate: queue.queueUpdate,
     deleteQueue: queue.deleteQueue,
+    deleteQueueItem: queue.deleteQueueItem,
   },
 };
 
