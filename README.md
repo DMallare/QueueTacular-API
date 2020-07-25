@@ -55,3 +55,7 @@ mutation{
 }
 
 
+### delete a queue
+mutation deleteQueueById {
+  deleteQueue(id: 1)
+}
