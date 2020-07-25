@@ -82,8 +82,6 @@ db.queues.createIndex({ title: 'text', description: 'text' });
 
 db.deleted_queues.createIndex({ id: 1 }, { unique: true });
 
-db.deleted_queues.createIndex({ id: 1 }, { unique: true });
-
 // type Queue {
 //   _id: ID!
 //   id: Int!

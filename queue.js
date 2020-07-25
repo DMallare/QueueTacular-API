@@ -39,6 +39,20 @@ async function queueUpdate(_, { id, changes }) {
   return updatedQueue;
 }
 
+// async function remove(_, { id }) {
+//   const db = getDb();
+//   const issue = await db.collection('issues').findOne({ id });
+//   if (!issue) return false;
+//   issue.deleted = new Date();
+
+//   let result = await db.collection('deleted_issues').insertOne(issue);
+//   if (result.insertedId) {
+//     result = await db.collection('issues').removeOne({ id });
+//     return result.deletedCount === 1;
+//   }
+//   return false;
+// }
+
 async function deleteQueue(_, { id }) {
   const db = getDb();
   const queue = await db.collection('queues').findOne({ id });

@@ -45,3 +45,7 @@ query showQueue($id: Int!) {
 }
 
 
+### delete a queue
+mutation deleteQueue {
+  deleteQueue(id: 1)
+}
