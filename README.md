@@ -44,4 +44,14 @@ query showQueue($id: Int!) {
   }
 }
 
+#### Update an item in a specific queue
+mutation{
+  itemUpdate(queueID: 1, itemID: 2, changes:{
+    status: Waiting,
+    description: "description here..."
+    }){
+    // Not sure what goes in here.. its not working, TBA
+  }
+}
+
 

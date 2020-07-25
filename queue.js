@@ -87,8 +87,9 @@ async function itemUpdate(_, { queueID, itemID, changes }) {
       { $set: { 'items.$.status': changes.status } },
     );
   }
-  const updatedQueue = await db.collection('queues').findOne({ queueID });
-  return updatedQueue;
+  const updatedItem = await db.collection('queues').findOne({ id: queueID, 'items.id': itemID },
+    { 'items.$.id': itemID });
+  return updatedItem;
 }
 
 module.exports = {
