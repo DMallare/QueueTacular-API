@@ -1,4 +1,22 @@
+// const { UserInputError } = require('apollo-server-express');
+
 const { getDb, getNextSequence } = require('./db.js');
+
+/*
+function validateItemID(queue, itemID) {
+  const db = getDb();
+  const errors = [];
+  // Check if the items array has greater than or equal to the supplied item ID
+  // number of items
+  if (db.collection('queues').find({ items: { $size: { $gte: itemID } } }) === null) {
+    errors.push(`Invalid item ID: ${itemID}`);
+  }
+  if (errors.length > 0) {
+    console.log(errors[0]);
+    throw new UserInputError('Invalid input(s)', { errors });
+  }
+}
+*/
 
 async function showQueue(_, { id }) {
   const db = getDb();
@@ -54,20 +72,24 @@ async function deleteQueue(_, { id }) {
 
 
 async function itemUpdate(_, { queueID, itemID, changes }) {
+  // validateItemID(queueID, itemID);
   const db = getDb();
   if (changes.description) {
-    await db.collection('queues').update(
+    await db.collection('queues').updateOne(
       { id: queueID, 'items.id': itemID },
       { $set: { 'items.$.description': changes.description } },
     );
   }
-  const updatedItem = await db.collection('queues').findOne(
-    { id: queueID },
-    { $getElem: { 'items.id': itemID } },
-  );
-  return updatedItem;
-}
 
+  if (changes.status) {
+    await db.collection('queues').updateOne(
+      { id: queueID, 'items.id': itemID },
+      { $set: { 'items.$.status': changes.status } },
+    );
+  }
+  const updatedQueue = await db.collection('queues').findOne({ queueID });
+  return updatedQueue;
+}
 
 module.exports = {
   showQueue,
