@@ -108,6 +108,6 @@ type Mutation {
   itemUpdate(queueID: Int!, itemID: Int!, changes: ItemUpdateInput!): QueueItem
   queueUpdate(id: Int!, changes: QueueUpdateInput!): Queue
   # TODO - Delete operations - Tim
-  itemDelete(id: Int!): Boolean
-  queueDelete(id: Int!): Boolean
+  deleteItem(id: Int!): Boolean
+  deleteQueue(id: Int!): Boolean
 }

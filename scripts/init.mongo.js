@@ -2,7 +2,7 @@
  * Run using the mongo shell. For remote databases, ensure that the
  * connection string is supplied in the command line. For example:
  * localhost:
- *   mongo issuetracker scripts/init.mongo.js
+ *   mongo queueSystem scripts/init.mongo.js
  * Atlas:
  *   mongo mongodb+srv://user:pwd@xxx.mongodb.net/queueSystem scripts/init.mongo.js
  * MLab:
@@ -13,8 +13,7 @@
 /* eslint no-restricted-globals: "off" */
 
 db.queues.remove({});
-// TODO: add new collection for deleted queues
-// db.deleted_queues.remove({});
+db.deleted_queues.remove({});
 
 const queuesDB = [
   {
@@ -81,17 +80,17 @@ db.queues.createIndex({ status: 1 });
 db.queues.createIndex({ owner: 1 });
 db.queues.createIndex({ title: 'text', description: 'text' });
 
-// db.deleted_queues.createIndex({ id: 1 }, { unique: true });
+db.deleted_queues.createIndex({ id: 1 }, { unique: true });
 
-// TODO: add new collection for deleted queues
-// db.deleted_issues.createIndex({ id: 1 }, { unique: true });
+db.deleted_queues.createIndex({ id: 1 }, { unique: true });
 
 // type Queue {
-//   # _id: ID!
-//   id: ID!
+//   _id: ID!
+//   id: Int!
 //   title: String!
 //   status: QueueStatusType!
-//   owner: User!
+//   # Changing owner to String (owner name)
+//   owner: String!
 //   description: String
 //   maxParticipants: Int
 //   maxWaitTime: Int
