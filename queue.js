@@ -36,8 +36,11 @@ async function addQueue(_, { newQueue }) {
   return savedQueue;
 }
 
-async function addItem(_, { id, changes} ) {
+async function addItem(_, queueID, { item } ) {
   const db = getDb();
+  const itemAdd = Object.assign({ }, item);
+  const queueUp = await db.collection('queues').findOne({ id: queueID });
+  queueUp.items.push(itemAdd);
  }
 
 module.exports = { showQueue, showAll, addQueue, addItem };

@@ -55,8 +55,6 @@ input UserInput {
 
 
 input QueueItemInput {
-  # ID of the queue that we want to add to
-  id: Int!
   status: QueueItemStatusType = Waiting
   name: String!
   email: String!
@@ -105,7 +103,7 @@ type Mutation {
   # Creates a new queue
   addQueue(newQueue: QueueInput!): Queue
   # TODO- adds an item to a specific queue - Nachi
-  addItem(item: QueueItemInput!): QueueItem
+  addItem(queueID, Int!, item: QueueItemInput!): QueueItem
   # TODO - Edit operations
   itemUpdate(item: ItemUpdateInput!): QueueItem
   queueUpdate(queue: QueueUpdateInput): Queue
