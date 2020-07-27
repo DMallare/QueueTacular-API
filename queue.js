@@ -1,6 +1,6 @@
 // const { UserInputError } = require('apollo-server-express');
 
-const { getDb, getNextSequence } = require('./db.js');
+const { getDb, getNextSequence } = require("./db.js");
 
 /*
 function validateItemID(queue, itemID) {
@@ -20,14 +20,13 @@ function validateItemID(queue, itemID) {
 
 async function showQueue(_, { id }) {
   const db = getDb();
-  const queue = await db.collection('queues').findOne({ id });
+  const queue = await db.collection("queues").findOne({ id });
   return queue;
 }
 
-
 async function showAll() {
   const db = getDb();
-  const queues = await db.collection('queues').find().toArray();
+  const queues = await db.collection("queues").find().toArray();
   return queues;
 }
 
@@ -35,25 +34,32 @@ async function addQueue(_, { newQueue }) {
   const db = getDb();
   // validate(issue);
 
-  const queueAdd = Object.assign({ }, newQueue);
-  queueAdd.id = await getNextSequence('queues');
+  const queueAdd = Object.assign({}, newQueue);
+  queueAdd.id = await getNextSequence("queues");
   queueAdd.items = [];
 
-  const result = await db.collection('queues').insertOne(queueAdd);
-  const savedQueue = await db.collection('queues')
+  const result = await db.collection("queues").insertOne(queueAdd);
+  const savedQueue = await db
+    .collection("queues")
     .findOne({ _id: result.insertedId });
   return savedQueue;
 }
 
 async function queueUpdate(_, { id, changes }) {
   const db = getDb();
-  if (changes.title || changes.status || changes.descripion
-      || changes.maxParticipants || changes.maxParticipants || changes.owner) {
-    const queue = await db.collection('queues').findOne({ id });
+  if (
+    changes.title ||
+    changes.status ||
+    changes.descripion ||
+    changes.maxParticipants ||
+    changes.maxParticipants ||
+    changes.owner
+  ) {
+    const queue = await db.collection("queues").findOne({ id });
     Object.assign(queue, changes);
   }
-  await db.collection('queues').updateOne({ id }, { $set: changes });
-  const updatedQueue = await db.collection('queues').findOne({ id });
+  await db.collection("queues").updateOne({ id }, { $set: changes });
+  const updatedQueue = await db.collection("queues").findOne({ id });
   return updatedQueue;
 }
 
@@ -73,12 +79,12 @@ async function queueUpdate(_, { id, changes }) {
 
 async function deleteQueue(_, { id }) {
   const db = getDb();
-  const queue = await db.collection('queues').findOne({ id });
+  const queue = await db.collection("queues").findOne({ id });
   if (!queue) return false;
 
-  let result = await db.collection('deleted_queues').insertOne(queue);
+  let result = await db.collection("deleted_queues").insertOne(queue);
   if (result.insertedId) {
-    result = await db.collection('queues').removeOne({ id });
+    result = await db.collection("queues").removeOne({ id });
     return result.deletedCount === 1;
   }
   return false;
@@ -89,44 +95,55 @@ async function deleteQueueItem(_, { queueID, queueItemID }) {
   // const queue = await db.collection('queues').
   //   findOne({ id: queueID }, { items: { $elemMatch: { id: 2 } } });
   // if (!queue) return false;
-  const result = await db.collection('queues').update({ id: queueID }, { $pull: { items: { id: queueItemID } } });
+  const result = await db
+    .collection("queues")
+    .update({ id: queueID }, { $pull: { items: { id: queueItemID } } });
   console.log(result.result.nModified);
   return result.result.nModified === 1;
 }
-
 
 async function itemUpdate(_, { queueID, itemID, changes }) {
   // validateItemID(queueID, itemID);
   const db = getDb();
   if (changes.description) {
-    await db.collection('queues').updateOne(
-      { id: queueID, 'items.id': itemID },
-      { $set: { 'items.$.description': changes.description } },
-    );
+    await db
+      .collection("queues")
+      .updateOne(
+        { id: queueID, "items.id": itemID },
+        { $set: { "items.$.description": changes.description } }
+      );
   }
 
   if (changes.status) {
-    await db.collection('queues').updateOne(
-      { id: queueID, 'items.id': itemID },
-      { $set: { 'items.$.status': changes.status } },
-    );
+    await db
+      .collection("queues")
+      .updateOne(
+        { id: queueID, "items.id": itemID },
+        { $set: { "items.$.status": changes.status } }
+      );
   }
 
   if (changes.name) {
-    await db.collection('queues').updateOne(
-      { id: queueID, 'items.id': itemID },
-      { $set: { 'items.$.name': changes.name } },
-    );
+    await db
+      .collection("queues")
+      .updateOne(
+        { id: queueID, "items.id": itemID },
+        { $set: { "items.$.name": changes.name } }
+      );
   }
 
   if (changes.email) {
-    await db.collection('queues').updateOne(
-      { id: queueID, 'items.id': itemID },
-      { $set: { 'items.$.email': changes.email } },
-    );
+    await db
+      .collection("queues")
+      .updateOne(
+        { id: queueID, "items.id": itemID },
+        { $set: { "items.$.email": changes.email } }
+      );
   }
 
-  const updatedItem = db.collection('queues').findOne({ id: queueID, 'items.id': itemID }, { 'items.$': 1 });
+  const updatedItem = db
+    .collection("queues")
+    .findOne({ id: queueID, "items.id": itemID }, { "items.$": 1 });
 
   return updatedItem;
 }
