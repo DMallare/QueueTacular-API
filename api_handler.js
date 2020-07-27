@@ -4,6 +4,7 @@ const resolvers = {
   Query: {
     showQueue: queue.showQueue,
     showAll: queue.showAll,
+    showItem: queue.showItem,
   },
 
   Mutation: {

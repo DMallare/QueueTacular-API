@@ -24,6 +24,27 @@ async function showQueue(_, { id }) {
   return queue;
 }
 
+async function showItem(_, { queueID, itemID }) {
+  const db = getDb();
+  // const item = await db.collection('queues')
+  // .find({ id: queueID, items: { $elemMatch: { id: itemID } } }).toArray();
+  const item = await db.collection('queues').aggregate([{ $match: { id: queueID } },
+    {
+      $project: {
+        items: {
+          $filter: {
+            input: '$items',
+            as: 'item',
+            cond: { $eq: ['$$item.id', itemID] },
+          },
+        },
+      },
+    },
+  ]).toArray();
+  console.log(item[0].items[0]);
+  return item[0].items[0];
+}
+
 async function showAll() {
   const db = getDb();
   const queues = await db.collection('queues').find().toArray();
@@ -96,7 +117,6 @@ async function deleteItem(_, { queueID, queueItemID }) {
   const result = await db
     .collection('queues')
     .update({ id: queueID }, { $pull: { items: { id: queueItemID } } });
-  console.log(result.result.nModified);
   return result.result.nModified === 1;
 }
 
@@ -149,6 +169,7 @@ async function updateItem(_, { queueID, itemID, changes }) {
 module.exports = {
   showQueue,
   showAll,
+  showItem,
   addQueue,
   updateQueue,
   deleteQueue,

@@ -59,3 +59,8 @@ mutation{
 mutation deleteQueueById {
   deleteQueue(id: 1)
 }
+
+### delete a queue item
+mutation deleteQueueItemByIds {
+  deleteItem (queueID: 2, queueItemID: 1)
+}

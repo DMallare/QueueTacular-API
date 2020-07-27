@@ -95,6 +95,7 @@ type Query {
   about: String!
   showAll: [Queue!]
   showQueue(id: Int!): Queue
+  showItem(queueID: Int!, itemID: Int!): QueueItem
 }
 
 type Mutation {
