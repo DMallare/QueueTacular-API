@@ -111,8 +111,23 @@ async function itemUpdate(_, { queueID, itemID, changes }) {
       { $set: { 'items.$.status': changes.status } },
     );
   }
-  const updatedItem = await db.collection('queues').findOne({ id: queueID, 'items.id': itemID },
-    { 'items.$.id': itemID });
+
+  if (changes.name) {
+    await db.collection('queues').updateOne(
+      { id: queueID, 'items.id': itemID },
+      { $set: { 'items.$.name': changes.name } },
+    );
+  }
+
+  if (changes.email) {
+    await db.collection('queues').updateOne(
+      { id: queueID, 'items.id': itemID },
+      { $set: { 'items.$.email': changes.email } },
+    );
+  }
+
+  const updatedItem = db.collection('queues').findOne({ id: queueID, 'items.id': itemID }, { 'items.$': 1 });
+
   return updatedItem;
 }
 
