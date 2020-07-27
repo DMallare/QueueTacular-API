@@ -45,6 +45,17 @@ async function addQueue(_, { newQueue }) {
   return savedQueue;
 }
 
+async function addItem(_, { queueID, item }) {
+  const db = getDb();
+  const itemAdd = Object.assign({}, item);
+  itemAdd.id = 7;
+  // const queueUp = await db.collection('queues').findOne({ id: queueID });
+  await db.collection('queues').updateOne({ id: queueID },
+    { $push: { items: itemAdd } });
+  // queueUp.updateOne.items.push(itemAdd));
+  return itemAdd;
+}
+
 async function queueUpdate(_, { id, changes }) {
   const db = getDb();
   if (changes.title || changes.status || changes.descripion
@@ -124,4 +135,5 @@ module.exports = {
   deleteQueue,
   itemUpdate,
   deleteQueueItem,
+  addItem,
 };
