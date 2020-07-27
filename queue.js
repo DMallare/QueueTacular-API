@@ -50,8 +50,9 @@ async function addItem(_, { queueID, item }) {
   const itemAdd = Object.assign({}, item);
   itemAdd.id = 7;
   // const queueUp = await db.collection('queues').findOne({ id: queueID });
-  await db.collection('queues').updateOne({ id: queueID },
-    { $push: { items: itemAdd } });
+  await db
+    .collection("queues")
+    .updateOne({ id: queueID }, { $push: { items: itemAdd } });
   // queueUp.updateOne.items.push(itemAdd));
   return itemAdd;
 }
