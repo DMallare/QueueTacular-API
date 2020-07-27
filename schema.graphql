@@ -103,9 +103,9 @@ type Mutation {
   # TODO- adds an item to a specific queue - Nachi
   addItem(queueID: Int!, item: QueueItemInput!): QueueItem
   # TODO - Edit operations
-  itemUpdate(queueID: Int!, itemID: Int!, changes: ItemUpdateInput!): Queue
-  queueUpdate(id: Int!, changes: QueueUpdateInput!): Queue
+  updateItem(queueID: Int!, itemID: Int!, changes: ItemUpdateInput!): Queue
+  updateQueue(id: Int!, changes: QueueUpdateInput!): Queue
   # TODO - Delete operations - Tim
-  deleteQueueItem(queueID: Int!, queueItemID: Int!): Boolean
+  deleteItem(queueID: Int!, queueItemID: Int!): Boolean
   deleteQueue(id: Int!): Boolean
 }
