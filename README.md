@@ -44,6 +44,20 @@ query showQueue($id: Int!) {
   }
 }
 
+#### show a queue item
+query showItemByIds($queueID: Int!, $itemID:Int!) {
+  showItem(queueID: $queueID, itemID: $itemID) {
+  	status description
+    name wait
+  } 
+}
+
+QUERY VARIABLES
+{
+  "queueID": 2,
+  "itemID": 2
+}
+
 #### Update an item in a specific queue
 mutation{
   itemUpdate(queueID: 1, itemID: 2, changes:{
