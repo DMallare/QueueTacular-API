@@ -159,10 +159,9 @@ async function updateItem(_, { queueID, itemID, changes }) {
       );
   }
 
-  const updatedItem = db
+  const updatedItem = await db
     .collection('queues')
     .findOne({ id: queueID, 'items.id': itemID }, { 'items.$': 1 });
-
   return updatedItem;
 }
 
