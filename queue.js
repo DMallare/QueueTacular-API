@@ -28,19 +28,23 @@ async function showItem(_, { queueID, itemID }) {
   const db = getDb();
   // const item = await db.collection('queues')
   // .find({ id: queueID, items: { $elemMatch: { id: itemID } } }).toArray();
-  const item = await db.collection('queues').aggregate([{ $match: { id: queueID } },
-    {
-      $project: {
-        items: {
-          $filter: {
-            input: '$items',
-            as: 'item',
-            cond: { $eq: ['$$item.id', itemID] },
+  const item = await db
+    .collection('queues')
+    .aggregate([
+      { $match: { id: queueID } },
+      {
+        $project: {
+          items: {
+            $filter: {
+              input: '$items',
+              as: 'item',
+              cond: { $eq: ['$$item.id', itemID] },
+            },
           },
         },
       },
-    },
-  ]).toArray();
+    ])
+    .toArray();
   console.log(item[0].items[0]);
   return item[0].items[0];
 }
@@ -81,12 +85,12 @@ async function addItem(_, { queueID, item }) {
 async function updateQueue(_, { id, changes }) {
   const db = getDb();
   if (
-    changes.title
-    || changes.status
-    || changes.descripion
-    || changes.maxParticipants
-    || changes.maxParticipants
-    || changes.owner
+    changes.title ||
+    changes.status ||
+    changes.descripion ||
+    changes.maxParticipants ||
+    changes.maxParticipants ||
+    changes.owner
   ) {
     const queue = await db.collection('queues').findOne({ id });
     Object.assign(queue, changes);
@@ -128,7 +132,7 @@ async function updateItem(_, { queueID, itemID, changes }) {
       .collection('queues')
       .updateOne(
         { id: queueID, 'items.id': itemID },
-        { $set: { 'items.$.description': changes.description } },
+        { $set: { 'items.$.description': changes.description } }
       );
   }
 
@@ -137,7 +141,7 @@ async function updateItem(_, { queueID, itemID, changes }) {
       .collection('queues')
       .updateOne(
         { id: queueID, 'items.id': itemID },
-        { $set: { 'items.$.status': changes.status } },
+        { $set: { 'items.$.status': changes.status } }
       );
   }
 
@@ -146,7 +150,7 @@ async function updateItem(_, { queueID, itemID, changes }) {
       .collection('queues')
       .updateOne(
         { id: queueID, 'items.id': itemID },
-        { $set: { 'items.$.name': changes.name } },
+        { $set: { 'items.$.name': changes.name } }
       );
   }
 
@@ -155,14 +159,15 @@ async function updateItem(_, { queueID, itemID, changes }) {
       .collection('queues')
       .updateOne(
         { id: queueID, 'items.id': itemID },
-        { $set: { 'items.$.email': changes.email } },
+        { $set: { 'items.$.email': changes.email } }
       );
   }
 
-  const updatedItem = await db
-    .collection('queues')
-    .findOne({ id: queueID, 'items.id': itemID }, { 'items.$': 1 });
-  return updatedItem;
+  // const updatedItem = await db
+  // .collection('queues')
+  // .findOne({ id: queueID, 'items.id': itemID }, { 'items.$': 1 });
+  const updatedQueue = await db.collection('queues').findOne({ id: queueID });
+  return updatedQueue.items[itemID - 1];
 }
 
 module.exports = {
