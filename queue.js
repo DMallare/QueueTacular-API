@@ -1,6 +1,6 @@
 // const { UserInputError } = require('apollo-server-express');
 
-const { getDb, getNextSequence } = require("./db.js");
+const { getDb, getNextSequence } = require('./db.js');
 
 /*
 function validateItemID(queue, itemID) {
@@ -20,13 +20,34 @@ function validateItemID(queue, itemID) {
 
 async function showQueue(_, { id }) {
   const db = getDb();
-  const queue = await db.collection("queues").findOne({ id });
+  const queue = await db.collection('queues').findOne({ id });
   return queue;
+}
+
+async function showItem(_, { queueID, itemID }) {
+  const db = getDb();
+  // const item = await db.collection('queues')
+  // .find({ id: queueID, items: { $elemMatch: { id: itemID } } }).toArray();
+  const item = await db.collection('queues').aggregate([{ $match: { id: queueID } },
+    {
+      $project: {
+        items: {
+          $filter: {
+            input: '$items',
+            as: 'item',
+            cond: { $eq: ['$$item.id', itemID] },
+          },
+        },
+      },
+    },
+  ]).toArray();
+  console.log(item[0].items[0]);
+  return item[0].items[0];
 }
 
 async function showAll() {
   const db = getDb();
-  const queues = await db.collection("queues").find().toArray();
+  const queues = await db.collection('queues').find().toArray();
   return queues;
 }
 
@@ -35,12 +56,12 @@ async function addQueue(_, { newQueue }) {
   // validate(issue);
 
   const queueAdd = Object.assign({}, newQueue);
-  queueAdd.id = await getNextSequence("queues");
+  queueAdd.id = await getNextSequence('queues');
   queueAdd.items = [];
 
-  const result = await db.collection("queues").insertOne(queueAdd);
+  const result = await db.collection('queues').insertOne(queueAdd);
   const savedQueue = await db
-    .collection("queues")
+    .collection('queues')
     .findOne({ _id: result.insertedId });
   return savedQueue;
 }
@@ -51,122 +72,107 @@ async function addItem(_, { queueID, item }) {
   itemAdd.id = 7;
   // const queueUp = await db.collection('queues').findOne({ id: queueID });
   await db
-    .collection("queues")
+    .collection('queues')
     .updateOne({ id: queueID }, { $push: { items: itemAdd } });
   // queueUp.updateOne.items.push(itemAdd));
   return itemAdd;
 }
 
-async function queueUpdate(_, { id, changes }) {
+async function updateQueue(_, { id, changes }) {
   const db = getDb();
   if (
-    changes.title ||
-    changes.status ||
-    changes.descripion ||
-    changes.maxParticipants ||
-    changes.maxParticipants ||
-    changes.owner
+    changes.title
+    || changes.status
+    || changes.descripion
+    || changes.maxParticipants
+    || changes.maxParticipants
+    || changes.owner
   ) {
-    const queue = await db.collection("queues").findOne({ id });
+    const queue = await db.collection('queues').findOne({ id });
     Object.assign(queue, changes);
   }
-  await db.collection("queues").updateOne({ id }, { $set: changes });
-  const updatedQueue = await db.collection("queues").findOne({ id });
+  await db.collection('queues').updateOne({ id }, { $set: changes });
+  const updatedQueue = await db.collection('queues').findOne({ id });
   return updatedQueue;
 }
 
-// async function remove(_, { id }) {
-//   const db = getDb();
-//   const issue = await db.collection('issues').findOne({ id });
-//   if (!issue) return false;
-//   issue.deleted = new Date();
-
-//   let result = await db.collection('deleted_issues').insertOne(issue);
-//   if (result.insertedId) {
-//     result = await db.collection('issues').removeOne({ id });
-//     return result.deletedCount === 1;
-//   }
-//   return false;
-// }
-
 async function deleteQueue(_, { id }) {
   const db = getDb();
-  const queue = await db.collection("queues").findOne({ id });
+  const queue = await db.collection('queues').findOne({ id });
   if (!queue) return false;
 
-  let result = await db.collection("deleted_queues").insertOne(queue);
+  let result = await db.collection('deleted_queues').insertOne(queue);
   if (result.insertedId) {
-    result = await db.collection("queues").removeOne({ id });
+    result = await db.collection('queues').removeOne({ id });
     return result.deletedCount === 1;
   }
   return false;
 }
 
-async function deleteQueueItem(_, { queueID, queueItemID }) {
+async function deleteItem(_, { queueID, queueItemID }) {
   const db = getDb();
   // const queue = await db.collection('queues').
   //   findOne({ id: queueID }, { items: { $elemMatch: { id: 2 } } });
   // if (!queue) return false;
   const result = await db
-    .collection("queues")
+    .collection('queues')
     .update({ id: queueID }, { $pull: { items: { id: queueItemID } } });
-  console.log(result.result.nModified);
   return result.result.nModified === 1;
 }
 
-async function itemUpdate(_, { queueID, itemID, changes }) {
+async function updateItem(_, { queueID, itemID, changes }) {
   // validateItemID(queueID, itemID);
   const db = getDb();
   if (changes.description) {
     await db
-      .collection("queues")
+      .collection('queues')
       .updateOne(
-        { id: queueID, "items.id": itemID },
-        { $set: { "items.$.description": changes.description } }
+        { id: queueID, 'items.id': itemID },
+        { $set: { 'items.$.description': changes.description } },
       );
   }
 
   if (changes.status) {
     await db
-      .collection("queues")
+      .collection('queues')
       .updateOne(
-        { id: queueID, "items.id": itemID },
-        { $set: { "items.$.status": changes.status } }
+        { id: queueID, 'items.id': itemID },
+        { $set: { 'items.$.status': changes.status } },
       );
   }
 
   if (changes.name) {
     await db
-      .collection("queues")
+      .collection('queues')
       .updateOne(
-        { id: queueID, "items.id": itemID },
-        { $set: { "items.$.name": changes.name } }
+        { id: queueID, 'items.id': itemID },
+        { $set: { 'items.$.name': changes.name } },
       );
   }
 
   if (changes.email) {
     await db
-      .collection("queues")
+      .collection('queues')
       .updateOne(
-        { id: queueID, "items.id": itemID },
-        { $set: { "items.$.email": changes.email } }
+        { id: queueID, 'items.id': itemID },
+        { $set: { 'items.$.email': changes.email } },
       );
   }
 
-  const updatedItem = db
-    .collection("queues")
-    .findOne({ id: queueID, "items.id": itemID }, { "items.$": 1 });
-
+  const updatedItem = await db
+    .collection('queues')
+    .findOne({ id: queueID, 'items.id': itemID }, { 'items.$': 1 });
   return updatedItem;
 }
 
 module.exports = {
   showQueue,
   showAll,
+  showItem,
   addQueue,
-  queueUpdate,
+  updateQueue,
   deleteQueue,
-  itemUpdate,
-  deleteQueueItem,
+  updateItem,
+  deleteItem,
   addItem,
 };
