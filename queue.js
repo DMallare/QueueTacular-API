@@ -74,7 +74,17 @@ async function addItem(_, { queueID, item }) {
   const db = getDb();
   const itemAdd = Object.assign({}, item);
   itemAdd.id = 7;
-  // const queueUp = await db.collection('queues').findOne({ id: queueID });
+
+  /* This does return the length but as a weird object,
+  [object Object]1 need to figure out how to just grab the number
+  current_length = await db
+    .collection('queues')
+    .aggregate({ $project: { numberOfItemsInArray: { $size: 'items' } } });
+
+  console.log(current_length);
+  itemAdd.id = current_length + 1;
+  */
+
   await db
     .collection('queues')
     .updateOne({ id: queueID }, { $push: { items: itemAdd } });
