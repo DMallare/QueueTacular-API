@@ -7,7 +7,6 @@ const { connectToDb } = require('./db.js');
 
 const { resolvers } = require('./api_handler.js');
 
-
 const PORT = process.env.API_SERVER_PORT || 3030;
 
 const server = new ApolloServer({
@@ -34,4 +33,4 @@ server.applyMiddleware({ app, path: '/graphql' });
   } catch (err) {
     console.log('ERROR:', err);
   }
-}());
+})();
