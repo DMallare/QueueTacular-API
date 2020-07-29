@@ -4,15 +4,16 @@ const resolvers = {
   Query: {
     showQueue: queue.showQueue,
     showAll: queue.showAll,
+    showItem: queue.showItem,
   },
 
   Mutation: {
     addQueue: queue.addQueue,
     addItem: queue.addItem,
-    queueUpdate: queue.queueUpdate,
-    itemUpdate: queue.itemUpdate,
+    updateQueue: queue.updateQueue,
+    updateItem: queue.updateItem,
     deleteQueue: queue.deleteQueue,
-    deleteQueueItem: queue.deleteQueueItem,
+    deleteItem: queue.deleteItem,
   },
 };
 
