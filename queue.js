@@ -79,7 +79,7 @@ async function addItem(_, { queueID, item }) {
   [object Object]1 need to figure out how to just grab the number
   current_length = await db
     .collection('queues')
-    .aggregate({ $project: { numberOfItemsInArray: { $size: 'items' } } });
+    .aggregate({ $project: { NumberOfElements: { $size: '$items' } } });
 
   console.log(current_length);
   itemAdd.id = current_length + 1;
