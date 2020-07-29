@@ -1,0 +1,112 @@
+# scalar GraphQLDate
+
+enum QueueStatusType {
+    Open
+    Closed
+}
+
+enum QueueItemStatusType {
+    Waiting
+    Serving
+    Served
+    Removed
+}
+
+# Issue -> QueueItem
+# IssueTable -> Queue
+
+# Person (QueueItem) in the queue -- add a phone number down the road??
+type QueueItem {
+    _id: ID!
+    id: Int!
+    status: QueueItemStatusType!
+    name: String!
+    email: String!
+    # created: GraphQLDate!
+    wait: Int
+    description: String
+}
+
+type Queue {
+    _id: ID!
+    id: Int!
+    title: String!
+    status: QueueStatusType!
+    # Changing owner to String (owner name)
+    owner: String!
+    description: String
+    maxParticipants: Int
+    maxWaitTime: Int
+    items: [QueueItem]
+}
+
+type User {
+  id: ID!
+  signedIn: Boolean!
+  name: String!
+  email: String!
+}
+
+
+input UserInput {
+  name: String!
+  email: String!
+}
+
+
+input QueueItemInput {
+  status: QueueItemStatusType = Waiting
+  name: String!
+  email: String!
+  description: String
+}
+
+
+input QueueInput {
+  owner: String!
+  title: String!
+  status: QueueStatusType = Open
+  description: String
+  maxParticipants: Int
+  maxWaitTime: Int
+}
+
+
+input ItemUpdateInput {
+  status: QueueItemStatusType
+  description: String
+  name: String
+  email: String
+}
+
+
+input QueueUpdateInput {
+  owner: String
+  title: String
+  status: QueueStatusType
+  description: String
+  maxWaitTime: Int
+  maxParticipants: Int
+}
+
+##### Top level declarations
+
+type Query {
+  about: String!
+  showAll: [Queue!]
+  showQueue(id: Int!): Queue
+  showItem(queueID: Int!, itemID: Int!): QueueItem
+}
+
+type Mutation {
+  # Creates a new queue
+  addQueue(newQueue: QueueInput!): Queue
+  # TODO- adds an item to a specific queue - Nachi
+  addItem(queueID: Int!, item: QueueItemInput!): QueueItem
+  # TODO - Edit operations
+  updateItem(queueID: Int!, itemID: Int!, changes: ItemUpdateInput!): QueueItem
+  updateQueue(id: Int!, changes: QueueUpdateInput!): Queue
+  # TODO - Delete operations - Tim
+  deleteItem(queueID: Int!, queueItemID: Int!): Boolean
+  deleteQueue(id: Int!): Boolean
+}

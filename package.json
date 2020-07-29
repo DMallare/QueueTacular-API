@@ -1,0 +1,37 @@
+{
+  "name": "graphql-crud",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "apollo-server-express": "^2.14.2",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^6.2.0",
+    "express": "^4.17.1",
+    "graphql": "^14.7.0",
+    "graphql-compose": "^7.18.1",
+    "graphql-compose-mongoose": "^7.4.1",
+    "mongoose": "^5.9.26",
+    "nodemon": "^1.19.4"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-plugin-import": "^2.21.2"
+  },
+  "scripts": {
+    "start": "nodemon -e js,graphql -w . -w .env app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saqibameen/GraphQL-CRUD.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saqibameen/GraphQL-CRUD/issues"
+  },
+  "homepage": "https://github.com/saqibameen/GraphQL-CRUD#readme"
+}
