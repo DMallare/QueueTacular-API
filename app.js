@@ -6,9 +6,6 @@ const cors = require('cors');
 const { ApolloServer } = require('apollo-server-express');
 
 const schema = require('./schema');
-// const Item = require('./models/item');
-// const Queue = require('./models/queue');
-// const User = require('./models/user');
 
 // Constants
 const URL = process.env.DB_URL || 'mongodb://localhost:27017';
@@ -23,109 +20,6 @@ connect.then(
     console.log(err);
   },
 );
-
-// const David = new User({
-//   username: 'Dave2D',
-//   email: 'dave@dave2d.com',
-//   signedin: true,
-// });
-
-// const MKBHD = new User({
-//   username: 'MHBHD',
-//   email: 'mkbhd@mkbhd.com',
-//   signedin: false,
-// });
-
-// const Billie = new User({
-//   username: 'Eilish',
-//   email: 'billieeilish@billieeilish.com',
-//   signedin: true,
-// });
-
-// const Winnie = new User({
-//   username: 'thepig',
-//   email: 'winniethepig@wtp.com',
-//   signedin: false,
-// });
-
-// const Winner = new User({
-//   username: 'winner',
-//   email: 'winerwinner@chickendinner.com',
-//   signedin: true,
-// });
-
-// const Danielle = new User({
-//   username: 'danielle',
-//   email: 'danielle@mallare.com',
-//   signedin: false,
-// });
-
-// const itemOne = new Item({
-//   status: 'Removed',
-//   user: MKBHD,
-//   wait: 25,
-//   description: 'queue item description one.',
-// });
-
-// const itemTwo = new Item({
-//   status: 'Waiting',
-//   user: Billie,
-//   wait: 999,
-//   description: 'queue item description two',
-// });
-
-// const itemThree = new Item({
-//   status: 'Serving',
-//   user: Winnie,
-//   wait: 999,
-//   description: 'queue item description three',
-// });
-
-// const itemFour = new Item({
-//   status: 'Complete',
-//   user: Winner,
-//   wait: 0,
-//   description: 'queue item description four',
-// });
-
-// const Doctor = new Queue({
-//   title: "Doctor's visit",
-//   status: 'Open',
-//   owner: David,
-//   description: 'Dr. Danis ENT office',
-//   maxParticipants: 12,
-//   maxWaitTime: 90,
-//   items: [
-//     itemOne,
-//     itemTwo,
-//   ],
-// });
-
-// const Disneyland = new Queue({
-//   title: 'Disneyland',
-//   status: 'Closed',
-//   owner: Danielle,
-//   description: 'The lines are too long!',
-//   maxParticipants: 1000,
-//   maxWaitTime: 999,
-//   items: [
-//     itemThree,
-//     itemFour,
-//   ],
-// });
-
-// David.save();
-// MKBHD.save();
-// Billie.save();
-// Winnie.save();
-// Winner.save();
-// Danielle.save();
-// itemOne.save();
-// itemTwo.save();
-// itemThree.save();
-// itemFour.save();
-// Doctor.save();
-// Disneyland.save();
 
 // Creating Apollo server.
 const server = new ApolloServer({
