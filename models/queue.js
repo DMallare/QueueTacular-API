@@ -15,7 +15,7 @@ const queueSchema = new Schema(
       enum: ['Open', 'Closed'],
       required: true,
     },
-    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+    owner: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     description: String,
     maxParticipants: Number,
     maxWaitTime: Number,
