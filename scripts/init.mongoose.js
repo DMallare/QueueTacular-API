@@ -6,6 +6,7 @@ const Queue = require('../models/queue');
 const User = require('../models/user');
 
 const URL = process.env.DB_URL || 'mongodb://localhost:27017';
+console.log(URL);
 mongoose.connect(URL, { useNewUrlParser: true, useUnifiedTopology: true });
 
 Queue.collection.drop().then(
