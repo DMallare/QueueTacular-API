@@ -1,14 +1,29 @@
 # GroupProject-SpaceForce-API
 
+## Team members:
+
+- Danielle Mallare-Dani
+- Nachiket Dani
+- Tim Gao
+- Zach Katancik
+
+---
+
+## Link to UI:
+
+[Space Force UI](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI)
+
 ## Initialization:
 
 To populate the database, run the script in the scripts/init.mongoose.js with node.
 
-    $ node scripts/mongoose.js
+    $ node scripts/init.mongoose.js
 
-To run the the application, install npm, and start with the start scripts
+To run the the application, install npm, and start with the start scripts.
 
     $ npm start
+
+The default graphql server API server is run on localhost:4000
 
 ---
 
