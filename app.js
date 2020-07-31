@@ -8,7 +8,7 @@ const { ApolloServer } = require("apollo-server-express");
 const schema = require("./schema");
 
 // Constants
-const URL = process.env.DB_URL;
+const URL = process.env.DB_URL || "mongodb://localhost:27017";
 
 // Connect to MongoDB.
 const connect = mongoose.connect(URL, {
@@ -16,7 +16,7 @@ const connect = mongoose.connect(URL, {
   useUnifiedTopology: true,
 });
 connect.then(
-  (db) => {
+  () => {
     console.log("Connected correctly to server!");
   },
   (err) => {
@@ -24,9 +24,9 @@ connect.then(
   }
 );
 
-// Creating apollo server.
+// Creating Apollo server.
 const server = new ApolloServer({
-  schema: schema,
+  schema,
 });
 
 // Creating express app.
@@ -36,7 +36,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use("*", cors());
 
-// Connecting express app with apollo.
+// Connecting express app with Apollo.
 server.applyMiddleware({ app });
 
 const PORT = process.env.API_SERVER_PORT || 4000;

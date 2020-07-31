@@ -1,80 +1,80 @@
 # GroupProject-SpaceForce-API
 
+## Team members:
 
-### Queries
+- Danielle Mallare-Dani
+- Nachiket Dani
+- Tim Gao
+- Zach Katancik
 
-#### Add to a queue
-mutation {
-  addQueue(newQueue:{
-    owner: "Ellie",
-    title: "Ellie's office hours",
-    description: "CS 5006 office hours",
-    }){
-      id
-      title
-      owner
-      description
-      status
-  }
- 
-}
+---
 
-#### Update a queue
-mutation{
-  queueUpdate(id: 3, changes:{
-    maxWaitTime: 60
-    }){
-      id
-      title
-      owner
-      description
-      status
-      maxParticipants
-      maxWaitTime
-  }
-}
+## Link to UI:
 
-#### show a queue
-query showQueue($id: Int!) {
-  showQueue(id: $id) {
-    title
-    items {
-      name
-    }  
-  }
-}
+[Space Force UI](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI)
 
-#### show a queue item
-query showItemByIds($queueID: Int!, $itemID:Int!) {
-  showItem(queueID: $queueID, itemID: $itemID) {
-  	status description
-    name wait
-  } 
-}
+## Initialization:
 
-QUERY VARIABLES
-{
-  "queueID": 2,
-  "itemID": 2
-}
+To populate the database, run the script in the scripts/init.mongoose.js with node.
 
-#### Update an item in a specific queue
-mutation{
-  itemUpdate(queueID: 1, itemID: 2, changes:{
-    status: Waiting,
-    description: "description here..."
-    }){
-    // Not sure what goes in here.. its not working, TBA
-  }
-}
+    $ node scripts/init.mongoose.js
 
+To run the the application, install npm, and start with the start scripts.
 
-### delete a queue
-mutation deleteQueueById {
-  deleteQueue(id: 1)
-}
+    $ npm start
 
-### delete a queue item
-mutation deleteQueueItemByIds {
-  deleteItem (queueID: 2, queueItemID: 1)
-}
+The default graphql server API server is run on localhost:4000
+
+---
+
+## Example GraphQL Queries:
+
+### Queries:
+
+#### find Query:
+
+    {
+      queueMany {
+        _id description
+        owner
+        items {
+          user
+          _id description
+        }
+      }
+    }
+
+#### findOne Query:
+
+    {
+      queueOne(filter: {
+        owner: "5f235c25ac3b06498000f2b8",
+        status:Open
+      }) {
+        _id description title
+      }
+    }
+
+### Mutations:
+
+#### updateOne Mutation:
+
+    mutation UpdateOneQueue {
+      queueUpdateOne(record:
+        {title: "new title", description: "rising"}
+      filter: {status: Open}) {
+        record {
+          description title
+        }, recordId
+      }
+    }
+
+#### deleteOne Mutation:
+
+    mutation DeleteOneQueue{
+      queueRemoveById(_id: "5f235c25ac3b06498000f2c5") {
+        recordId record {
+          description title _id
+        }
+      }
+    }
