@@ -89,6 +89,16 @@ to integrate these into the application. A summary of these is below:</p>
 - <strong>Delete:</strong> Our application also supports API's to delete an item in a queue and to delete
   an entire queue itself.
 
+### Summary of Contributions
+
+- API, original schema with resolver functions - Tim, Danielle, and Nachiket
+- API, migration to Mongoose - Tim
+- UI, initial setup - Zack
+- UI, creation of InQueue, MultiviewQueue, Dashboard components - Zack
+- UI, created GraphQLFetch function, integrated Dashboard components InQueue and QueueMultiview with the database - Danielle
+- UI, Create component - Tim
+- UI, Join component and integrated Join with the UI - Nachiket
+
 ## </details>
 
 ## Example GraphQL Queries:
