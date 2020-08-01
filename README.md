@@ -43,7 +43,7 @@ as the ability to limit the number of people that can be enqueued at any time.</
 
 3. Run the the application, install dependencies, and start with the start scripts:
   ```
-  $ npm i <br>
+  $ npm i
   $ npm start
   ```
 
