@@ -71,25 +71,25 @@ to integrate these into the application. A summary of these is below:</p>
   Queue title and desription are required. All other fields are optional. In the future, when a user navigates to
   the Join page and clicks "Join Queue" to join a queue, a new item will be created and added to the specified queue.
 
-  ![Create Page](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-API/blob/dmb/readme_screenshots/iter1_create.JPG)
+  ![Create Page](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-API/blob/master/readme_screenshots/iter1_create.JPG)
 
 - <strong>Read:</strong> The main dashboard page of the application shows the user queues they are currently in
   and a history of queues they had been in previously (queues they are no longer "Waiting" in).
   Queues are displayed in a timeline format giving the user perspective on where they are in reference
   to the end of the queue (and being served!)
 
-  ![Main Dashboard](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-API/blob/dmb/readme_screenshots/iter1_dashboard_new.JPG)
+  ![Main Dashboard](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-API/blob/master/readme_screenshots/iter1_dashboard_new.JPG)
 
   The InQueue component giving the user perspective on where they are in reference to the end of the queue
 
-  ![InQueue component](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-API/blob/dmb/readme_screenshots/iter1_inQueue.JPG)
+  ![InQueue component](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-API/blob/master/readme_screenshots/iter1_inQueue.JPG)
 
 - <strong>Update:</strong> Currently our application supports many different update API's ranging from allowing
   a user to change their own information (such as their email), to allowing an item in the queue to be updated
   to change an item's status from "Waiting" to "Served." Other operations include updating queue information
   (such as updating a description or queue status), removing an item from the queue.
 
-  ![Join a Queue](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-API/blob/dmb/readme_screenshots/iter1_join.JPG)
+  ![Join a Queue](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-API/blob/master/readme_screenshots/iter1_join.JPG)
 
 - <strong>Delete:</strong> Our application also supports API's to delete an item in a queue and to delete
   an entire queue itself.
