@@ -1,148 +1,138 @@
-require('dotenv').config();
-const mongoose = require('mongoose');
+require("dotenv").config();
+const mongoose = require("mongoose");
 
-const Item = require('../models/item');
-const Queue = require('../models/queue');
-const User = require('../models/user');
+const Item = require("../models/item");
+const Queue = require("../models/queue");
+const User = require("../models/user");
 
-const URL = process.env.DB_URL || 'mongodb://localhost:27017';
+const URL = process.env.DB_URL || "mongodb://localhost:27017";
 console.log(URL);
 mongoose.connect(URL, { useNewUrlParser: true, useUnifiedTopology: true });
 
 Queue.collection.drop().then(
   () => {
-    console.log('Dropped queues collection!');
+    console.log("Dropped queues collection!");
   },
   (err) => {
     console.log(err);
-  },
+  }
 );
 
 Item.collection.drop().then(
   () => {
-    console.log('Dropped items collection!');
+    console.log("Dropped items collection!");
   },
   (err) => {
     console.log(err);
-  },
+  }
 );
 
 User.collection.drop().then(
   () => {
-    console.log('Dropped user collection!');
+    console.log("Dropped user collection!");
   },
   (err) => {
     console.log(err);
-  },
+  }
 );
 
 const David = new User({
-  username: 'Dave2D',
-  email: 'dave@dave2d.com',
+  username: "Dave2D",
+  email: "dave@dave2d.com",
   signedin: true,
 });
 
 const MKBHD = new User({
-  username: 'MHBHD',
-  email: 'mkbhd@mkbhd.com',
+  username: "MHBHD",
+  email: "mkbhd@mkbhd.com",
   signedin: false,
 });
 
 const Billie = new User({
-  username: 'Eilish',
-  email: 'billieeilish@billieeilish.com',
+  username: "Eilish",
+  email: "billieeilish@billieeilish.com",
   signedin: true,
 });
 
 const Winnie = new User({
-  username: 'thepig',
-  email: 'winniethepig@wtp.com',
+  username: "thepig",
+  email: "winniethepig@wtp.com",
   signedin: false,
 });
 
 const Winner = new User({
-  username: 'winner',
-  email: 'winerwinner@chickendinner.com',
+  username: "winner",
+  email: "winerwinner@chickendinner.com",
   signedin: true,
 });
 
 const Danielle = new User({
-  username: 'danielle',
-  email: 'danielle@mallare.com',
+  username: "danielle",
+  email: "danielle@mallare.com",
   signedin: false,
 });
 
-const userDB = [
-  David, MKBHD, Billie, Winnie, Winner, Danielle,
-];
+const userDB = [David, MKBHD, Billie, Winnie, Winner, Danielle];
 
 const itemOne = new Item({
-  status: 'Removed',
+  status: "Removed",
   user: MKBHD,
   wait: 25,
-  description: 'queue item description one.',
+  description: "queue item description one.",
 });
 
 const itemTwo = new Item({
-  status: 'Waiting',
+  status: "Waiting",
   user: Billie,
   wait: 999,
-  description: 'queue item description two',
+  description: "queue item description two",
 });
 
 const itemThree = new Item({
-  status: 'Serving',
+  status: "Serving",
   user: Winnie,
   wait: 999,
-  description: 'queue item description three',
+  description: "queue item description three",
 });
 
 const itemFour = new Item({
-  status: 'Complete',
+  status: "Complete",
   user: Winner,
   wait: 0,
-  description: 'queue item description four',
+  description: "queue item description four",
 });
 
-const itemDB = [
-  itemOne, itemTwo, itemThree, itemFour,
-];
+const itemDB = [itemOne, itemTwo, itemThree, itemFour];
 
 const Doctor = new Queue({
   title: "Doctor's visit",
-  status: 'Open',
+  status: "Open",
   owner: David,
-  description: 'Dr. Danis ENT office',
+  description:
+    "Dr. Larrys ENT office. We fix your Ears, Nose and Throat problems. Hours: M-F 9am to 5pm",
   maxParticipants: 12,
   maxWaitTime: 90,
-  items: [
-    itemOne,
-    itemTwo,
-  ],
+  items: [itemOne, itemTwo],
 });
 
 const Disneyland = new Queue({
-  title: 'Disneyland',
-  status: 'Closed',
+  title: "Disneyland",
+  status: "Closed",
   owner: Danielle,
-  description: 'The lines are too long!',
+  description:
+    "This is the general ticketing queue for Disneyland - no fast passes. The lines for all rides are too long!",
   maxParticipants: 1000,
   maxWaitTime: 999,
-  items: [
-    itemThree,
-    itemFour,
-  ],
+  items: [itemThree, itemFour],
 });
 
-const queueDB = [
-  Doctor, Disneyland,
-];
+const queueDB = [Doctor, Disneyland];
 
 User.insertMany(userDB, (err) => {
   if (err) {
     console.log(err);
   } else {
-    console.log('Added users.');
+    console.log("Added users.");
   }
 });
 
@@ -150,7 +140,7 @@ Item.insertMany(itemDB, (err) => {
   if (err) {
     console.log(err);
   } else {
-    console.log('Added items.');
+    console.log("Added items.");
   }
 });
 
@@ -158,7 +148,7 @@ Queue.insertMany(queueDB, (err) => {
   if (err) {
     console.log(err);
   } else {
-    console.log('Added queues.');
+    console.log("Added queues.");
   }
 });
 
