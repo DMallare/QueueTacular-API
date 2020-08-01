@@ -5,7 +5,7 @@
 - Danielle Mallare-Dani
 - Nachiket Dani
 - Tim Gao
-- Zach Katancik
+- Zack Katancik
 
 ---
 
@@ -95,11 +95,12 @@ to integrate these into the application. A summary of these is below:</p>
 
 ### Summary of Contributions
 
-- API, original schema with resolver functions - Tim, Danielle, and Nachiket
+- API, original schema with resolver functions - Tim, Danielle, and Nachiket (see old_api folder)
 - API, migration to Mongoose - Tim
 - UI, initial setup - Zack
 - UI, creation of InQueue, MultiviewQueue, Dashboard components - Zack
-- UI, created GraphQLFetch function, integrated Dashboard components InQueue and QueueMultiview with the database - Danielle
+- UI, created GraphQLFetch function - Danielle
+- UI, integrated Dashboard components InQueue and QueueMultiview with the database - Danielle
 - UI, Create component - Tim
 - UI, Join component and integrated Join with the UI - Nachiket
 
