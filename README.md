@@ -37,11 +37,15 @@ as the ability to limit the number of people that can be enqueued at any time.</
 
 2. To populate the database, run the script in the scripts/init.mongoose.js with node.
 
-   \$ node scripts/init.mongoose.js
+  ```
+  $ node scripts/init.mongoose.js
+  ```
 
-3. Run the the application, install dependencies, and start with the start scripts:<br>
-   \$ npm install <br>
-   \$ npm start
+3. Run the the application, install dependencies, and start with the start scripts:
+  ```
+  $ npm i
+  $ npm start
+  ```
 
 The default graphql server API server is run on localhost:4000
 
@@ -56,7 +60,7 @@ Queues, and Items. A summary of the relationship between these collections is be
 
 - A queue has an owner that is a member of the User collection.
 - A queue also has a list of items.
-- Each item has an associated User.
+- A item has an a user that is a member of the User collection.
 
 <p>The basic CRUD operations were implemented in this iteration on the API and we have begun
 to integrate these into the application. A summary of these is below:</p>
