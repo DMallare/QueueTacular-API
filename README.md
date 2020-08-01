@@ -33,7 +33,7 @@ as the ability to limit the number of people that can be enqueued at any time.</
 
 1. Clone both repos: <br>
    [Space Force UI](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI) <br>
-   [Space Force UI](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-API)
+   [Space Force API](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-API)
 
 2. To populate the database, run the script in the scripts/init.mongoose.js with node.
 
