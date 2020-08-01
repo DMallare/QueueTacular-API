@@ -37,15 +37,16 @@ as the ability to limit the number of people that can be enqueued at any time.</
 
 2. To populate the database, run the script in the scripts/init.mongoose.js with node.
 
-  ```
-  $ node scripts/init.mongoose.js
-  ```
+```
+$ node scripts/init.mongoose.js
+```
 
 3. Run the the application, install dependencies, and start with the start scripts:
-  ```
-  $ npm i
-  $ npm start
-  ```
+
+```
+$ npm i
+$ npm start
+```
 
 The default graphql server API server is run on localhost:4000
 
@@ -77,7 +78,7 @@ to integrate these into the application. A summary of these is below:</p>
   Queues are displayed in a timeline format giving the user perspective on where they are in reference
   to the end of the queue (and being served!)
 
-  ![Main Dashboard](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-API/blob/dmb/readme_screenshots/iter1_dashboard.JPG)
+  ![Main Dashboard](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-API/blob/dmb/readme_screenshots/iter1_dashboard_new.JPG)
 
   The InQueue component giving the user perspective on where they are in reference to the end of the queue
 
