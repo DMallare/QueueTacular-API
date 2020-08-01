@@ -13,19 +13,73 @@
 
 [Space Force UI](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI)
 
-## Initialization:
+## Project Summary:
 
-To populate the database, run the script in the scripts/init.mongoose.js with node.
+<p> Queue-tacular allows users to join a queue with the click of a button and provides
+the "queuee" with real time info on their current status while waiting. Can't stare
+at your phone or computer while waiting for your turn? No problem! Queue-tacular will email
+you when its your turn.</p>
 
-    $ node scripts/init.mongoose.js
+<p> Users are also able to create their own queues for others to join. Queue-tacular gives
+you the ability cutomize your queue with a title, description, and other metrics to manage your queue such
+as the ability to limit the number of people that can be enqueued at any time.</p>
 
-To run the the application, install npm, and start with the start scripts.
+## Iter 1.0:
 
-    $ npm start
+<details>
+  <summary>Click to Expand Iter 1.0</summary>
+
+### Build and Run Instructions:
+
+1. Clone both repos: <br>
+   [Space Force UI](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI) <br>
+   [Space Force UI](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-API)
+
+2. To populate the database, run the script in the scripts/init.mongoose.js with node.
+
+   \$ node scripts/init.mongoose.js
+
+3. To run the the application, install npm, and start with the start scripts.
+
+   \$ npm start
 
 The default graphql server API server is run on localhost:4000
 
----
+### Work completed:
+
+<p>We initally went with a similar API to the issuetracker project but found that
+querying the data base and grabbing specific information from the response object
+was becoming cumbersome. To mitigate this issue, we switched to work with Mongoose as
+opposed to the MongoDB driver for Node.</p> The Database has three main collections- Users,
+Queues, and Items. A summary of the relationship between these collections is below:
+</p>
+
+- A queue has an owner that is a member of the User collection.
+- A queue also has a list of items.
+- Each item has an associated User.
+
+<p>The basic CRUD operations were implemented in this iteration on the API and we have begun
+to integrate these into the application. A summary of these is below:</p>
+
+- <strong>Create:</strong> A user has the ability to to create their own queue (see the side nav bar).
+  Clicking on "Create" will take the user to a page with a form allowing the user to input their queue's information.
+  Queue title and desription are required. All other fields are optional. In the future, when a user navigates to
+  the Join page and clicks "Join Queue" to join a queue, a new item will be created and added to the specified queue.
+
+- <strong>Read:</strong> The main dashboard page of the application shows the user queues they are currently in
+  and a history of queues they had been in previously (queues they are no longer "Waiting" in).
+  Queues are displayed in a timeline format giving the user perspective on where they are in reference
+  to the end of the queue (and being served!)
+
+- <strong>Update:</strong> Currently our application supports many different update API's ranging from allowing
+  a user to change their own information (such as their email), to allowing an item in the queue to be updated
+  to change an item's status from "Waiting" to "Served." Other operations include updating queue information
+  (such as updating a description or queue status), removing an item from the queue
+
+- <strong>Delete:</strong> Our application also supports API's to delete an item in a queue and to delete
+  an entire queue itself.
+
+## </details>
 
 ## Example GraphQL Queries:
 
