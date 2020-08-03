@@ -171,7 +171,7 @@ const itemTwelve = new Item({
 });
 
 const itemThirteen = new Item({
-  status: 'Completed',
+  status: 'Complete',
   user: Winnie,
   wait: 15,
   description: 'Program is crashing',
