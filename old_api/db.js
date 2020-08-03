@@ -1,5 +1,5 @@
-require("dotenv").config();
-const { MongoClient } = require("mongodb");
+require('dotenv').config();
+const { MongoClient } = require('mongodb');
 
 let db;
 
@@ -7,17 +7,17 @@ async function connectToDb() {
   const url = process.env.DB_URL;
   const client = new MongoClient(url, { useNewUrlParser: true });
   await client.connect();
-  console.log("Connected to MongoDB at", url);
-  db = client.db("queueSystem");
+  console.log('Connected to MongoDB at', url);
+  db = client.db('queueSystem');
 }
 
 async function getNextSequence(name) {
   const result = await db
-    .collection("counters")
+    .collection('counters')
     .findOneAndUpdate(
       { _id: name },
       { $inc: { current: 1 } },
-      { returnOriginal: false }
+      { returnOriginal: false },
     );
   return result.value.current;
 }
