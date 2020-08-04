@@ -25,8 +25,8 @@ const queueSchema = new Schema(
       type: [Item],
       default: [],
     },
-    timestamps: true,
   },
+  { timestamps: true },
 );
 
 
