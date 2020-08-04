@@ -15,8 +15,7 @@ const itemSchema = new Schema(
       type: String,
     },
   },
-  // { collection: 'items' },
-  // { timestamps: true },
+  { timestamps: true },
 );
 
 const Item = mongoose.model('Item', itemSchema);

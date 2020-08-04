@@ -18,11 +18,11 @@ const queueSchema = new Schema(
     owner: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     description: String,
     maxParticipants: Number,
-    maxWaitTime: Number,
+    startDate: Date,
+    endDate: Date,
     items: [Item],
   },
-  // { collection: 'queues' }
-  // { timestamps: true },
+  { timestamps: true },
 );
 
 
