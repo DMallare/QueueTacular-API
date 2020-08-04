@@ -9,7 +9,10 @@ const userSchema = new Schema(
       required: true,
     },
     email: String,
-    signedin: Boolean,
+    signedin: {
+      type: Boolean,
+      default: false,
+    },
   },
   { timestamps: true },
 );
