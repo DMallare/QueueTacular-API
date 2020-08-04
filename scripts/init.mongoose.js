@@ -15,7 +15,7 @@ Queue.collection.drop().then(
   },
   (err) => {
     console.log(err);
-  },
+  }
 );
 
 Item.collection.drop().then(
@@ -24,7 +24,7 @@ Item.collection.drop().then(
   },
   (err) => {
     console.log(err);
-  },
+  }
 );
 
 User.collection.drop().then(
@@ -33,7 +33,7 @@ User.collection.drop().then(
   },
   (err) => {
     console.log(err);
-  },
+  }
 );
 
 const David = new User({
@@ -68,7 +68,7 @@ const Tim = new User({
 
 const Danielle = new User({
   username: 'danielle',
-  email: 'dmallare7@gmail.com',
+  email: 'spaceforcegroup@gmail.com',
   signedin: false,
 });
 
