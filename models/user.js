@@ -9,10 +9,12 @@ const userSchema = new Schema(
       required: true,
     },
     email: String,
-    signedin: Boolean,
+    signedin: {
+      type: Boolean,
+      default: false,
+    },
   },
-  // { collection: 'users' },
-  // { timestamps: true },
+  { timestamps: true },
 );
 
 const User = mongoose.model('User', userSchema);

@@ -7,7 +7,7 @@ const itemSchema = new Schema(
     status: {
       type: String,
       enum: ['Removed', 'Complete', 'Serving', 'Waiting'],
-      required: true,
+      default: 'Waiting',
     },
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     wait: Number,
@@ -15,8 +15,7 @@ const itemSchema = new Schema(
       type: String,
     },
   },
-  // { collection: 'items' },
-  // { timestamps: true },
+  { timestamps: true },
 );
 
 const Item = mongoose.model('Item', itemSchema);

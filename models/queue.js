@@ -13,16 +13,20 @@ const queueSchema = new Schema(
     status: {
       type: String,
       enum: ['Open', 'Closed'],
+      default: 'Open',
       required: true,
     },
     owner: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     description: String,
     maxParticipants: Number,
-    maxWaitTime: Number,
-    items: [Item],
+    startDate: Date,
+    endDate: Date,
+    items: {
+      type: [Item],
+      default: [],
+    },
   },
-  // { collection: 'queues' }
-  // { timestamps: true },
+  { timestamps: true },
 );
 
 

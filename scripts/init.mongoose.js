@@ -15,7 +15,7 @@ Queue.collection.drop().then(
   },
   (err) => {
     console.log(err);
-  }
+  },
 );
 
 Item.collection.drop().then(
@@ -24,7 +24,7 @@ Item.collection.drop().then(
   },
   (err) => {
     console.log(err);
-  }
+  },
 );
 
 User.collection.drop().then(
@@ -33,7 +33,7 @@ User.collection.drop().then(
   },
   (err) => {
     console.log(err);
-  }
+  },
 );
 
 const David = new User({
@@ -62,7 +62,7 @@ const Winnie = new User({
 
 const Tim = new User({
   username: 'timmm',
-  email: 'winerwinner@chickendinner.com',
+  email: 'winnerwinner@chickendinner.com',
   signedin: true,
 });
 
@@ -200,7 +200,8 @@ const Doctor = new Queue({
   description:
     'Dr. Larrys ENT office. We fix your Ears, Nose and Throat problems. Hours: M-F 9am to 5pm',
   maxParticipants: 12,
-  maxWaitTime: 90,
+  startDate: '2020-12-17T03:24:00',
+  endDate: '2020-12-17T09:24:00',
   items: [itemOne, itemTwo],
 });
 
@@ -211,7 +212,8 @@ const Disneyland = new Queue({
   description:
     'This is the general ticketing queue for Disneyland - no fast passes. The lines for all rides are too long!',
   maxParticipants: 1000,
-  maxWaitTime: 999,
+  startDate: '2020-09-01T03:24:00',
+  endDate: '2020-11-22T09:24:00',
   items: [itemThree, itemFour, itemFive, itemEight],
 });
 
@@ -221,7 +223,8 @@ const TimOH = new Queue({
   owner: Tim,
   description: 'Get your computer science questions answered!',
   maxParticipants: 10,
-  maxWaitTime: 90,
+  startDate: new Date('2020-08-04T04:00:00'),
+  endDate: new Date('01.02.2012').toISOString(),
   items: [itemSix, itemSeven, itemNine],
 });
 
@@ -231,7 +234,8 @@ const ZackOH = new Queue({
   owner: Zack,
   description: 'CS5006 Office hours',
   maxParticipants: 10,
-  maxWaitTime: 110,
+  startDate: new Date(2019, 11, 5, 6, 0, 0, 0),
+  endDate: new Date('01.02.2012'),
   items: [itemTen, itemEleven, itemTwelve, itemThirteen],
 });
 
