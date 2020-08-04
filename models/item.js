@@ -8,7 +8,6 @@ const itemSchema = new Schema(
       type: String,
       enum: ['Removed', 'Complete', 'Serving', 'Waiting'],
       default: 'Waiting',
-      required: true,
     },
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     wait: Number,
