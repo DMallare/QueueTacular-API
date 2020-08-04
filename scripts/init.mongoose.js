@@ -68,7 +68,7 @@ const Tim = new User({
 
 const Danielle = new User({
   username: 'danielle',
-  email: 'danielle@mallare.com',
+  email: 'dmallare7@gmail.com',
   signedin: false,
 });
 
@@ -122,7 +122,7 @@ const itemFive = new Item({
 });
 
 const itemSix = new Item({
-  status: 'Waiting',
+  status: 'Complete',
   user: Danielle,
   wait: 11,
   description: 'I need help with programming stuff',
