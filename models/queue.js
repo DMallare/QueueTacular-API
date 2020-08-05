@@ -10,12 +10,14 @@ const queueSchema = new Schema(
       type: String,
       required: true,
     },
+
     status: {
       type: String,
       enum: ['Open', 'Closed'],
       default: 'Open',
       required: true,
     },
+
     owner: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     description: String,
     maxParticipants: Number,
@@ -26,9 +28,10 @@ const queueSchema = new Schema(
       default: [],
     },
   },
-  { timestamps: true },
+  { timestamps: true }
 );
 
-
+queueSchema.index({ title: 'text' });
+// queueSchema.path('title').index({ unique: true });
 const Queue = mongoose.model('Queue', queueSchema);
 module.exports = Queue;

@@ -9,6 +9,15 @@ const QueueTC = composeWithMongoose(Queue, {});
 const ItemTC = composeWithMongoose(Item, {});
 const UserTC = composeWithMongoose(User, {});
 
+// QueueTC.addResolver({
+//   name: 'searchByTitle',
+//   args: { title: 'String' },
+//   type: QueueTC,
+//   resolve: async ({ source, args }) => {
+//     if (args.title) filter.$text = { $search: args.title };
+//   },
+// });
+
 schemaComposer.Query.addFields({
   queueById: QueueTC.getResolver('findById'),
   queueByIds: QueueTC.getResolver('findByIds'),
