@@ -52,9 +52,9 @@ as the ability to limit the number of people that can be enqueued at any time.</
 
 See the screenshots below:
 
-![Join component user not logged in]()
+![Join component user not logged in](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-API/blob/master/readme_screenshots/iter2_dashboard_notloggedin.JPG)
 
-![Join component user logged in]()
+![Join component user logged in](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-API/blob/master/readme_screenshots/iter2_Join_SearchBar_UserLoggedIn.JPG)
 
 #### Google login / logout (Danielle)
 
@@ -66,7 +66,7 @@ See the screenshots below:
 
   - components are empty - no data is displayed (see the screenshot below)
 
-  ![Logged out view]()
+  ![Logged out view](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-API/blob/master/readme_screenshots/iter2_dashboard_notloggedin.JPG)
 
 #### Display detailed information about queues user is in (Danielle)
 
@@ -78,7 +78,7 @@ See the screenshots below:
 
 See the screenshot below:
 
-![Queues user is in detailed information]()
+![Queues user is in detailed information](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-API/blob/master/readme_screenshots/iter2_InQueue_components.JPG)
 
 </details>
 
