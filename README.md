@@ -24,6 +24,64 @@ you when its your turn.</p>
 you the ability cutomize your queue with a title, description, and other metrics to manage your queue such
 as the ability to limit the number of people that can be enqueued at any time.</p>
 
+## Iter 2.0:
+
+<details>
+  <summary>Click to Expand Iter 2.0</summary>
+
+### Summary of Work Completed:
+
+#### Lifts all Dashboard Component state to top level App component (Danielle, Tim, Zack)
+
+- Code found in `src/layouts/Admin.js`
+- Migrates all Dashboard component state including items user is in, queues they are in,
+  created queues, etc., to top level App component
+- Passes relevant data as props to all child components including CreatesQueues, QueueMultiview, Join, etc.
+
+#### Makes Create component dynamic (Tim)
+
+#### Designs MyCreatedQueues, QueueMultiview, InQueue, QueueMini components (Zack)
+
+#### Makes Join a dynamic component and adds search bar (Nachiket)
+
+- Code found in `src/views/join.js`
+- Implements search bar so user can search for a queue by title
+- Displays queues brought up by search bar
+- Creates a "Join Queue" button that is disabled if a valid queue title is not found or the user is not logged in
+- Join Queue button creates a new Item in the Items collection of the datatbase corresponding to the logged in user
+
+See the screenshots below:
+
+![Join component user not logged in]()
+
+![Join component user logged in]()
+
+#### Google login / logout (Danielle)
+
+- Created a Login component - found in `src/components/Login.js`
+- Utilized library `react-google-login` to implement signing in/out with Google account
+- Handles when a user logs in with a Google account for the first time
+  - A new User is created in the database with their credentials from Google
+- Handles when a user has not signed in
+
+  - components are empty - no data is displayed (see the screenshot below)
+
+  ![Logged out view]()
+
+#### Display detailed information about queues user is in (Danielle)
+
+- Queries the database to grab all queues the user is in
+- Displays each queue user is in (code in `src/components/QueueMultiview.js`)
+- Displays detailed information about each queue (code in `src/components/InQueue.js` )
+  - Progress bar dynamically rendered to show where user is in relation to their place in line.
+  - Queue title, description, the user's item description for that queue, and when the queue will close is displayed
+
+See the screenshot below:
+
+![Queues user is in detailed information]()
+
+</details>
+
 ## Iter 1.0:
 
 <details>
@@ -50,7 +108,7 @@ $ npm start
 
 The default graphql server API server is run on localhost:4000
 
-### Work completed:
+### Summary of Work completed:
 
 <p>We initally went with a similar API to the issuetracker project but found that
 querying the data base and grabbing specific information from the response object
