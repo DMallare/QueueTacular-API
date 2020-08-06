@@ -15,7 +15,6 @@ const queueSchema = new Schema(
       type: String,
       enum: ['Open', 'Closed'],
       default: 'Open',
-      required: true,
     },
 
     owner: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
@@ -28,7 +27,7 @@ const queueSchema = new Schema(
       default: [],
     },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 queueSchema.index({ title: 'text' });
