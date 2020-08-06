@@ -122,7 +122,7 @@ const itemFive = new Item({
 });
 
 const itemSix = new Item({
-  status: 'Complete',
+  status: 'Waiting',
   user: Danielle,
   wait: 11,
   description: 'I need help with programming stuff',
@@ -236,7 +236,7 @@ const ZackOH = new Queue({
   maxParticipants: 10,
   startDate: new Date(2019, 11, 5, 6, 0, 0, 0),
   endDate: new Date('01.02.2012'),
-  items: [itemTen, itemEleven, itemTwelve, itemThirteen],
+  items: [itemEleven, itemTwelve, itemThirteen, itemTen],
 });
 
 const queueDB = [Doctor, Disneyland, TimOH, ZackOH];
