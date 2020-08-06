@@ -20,6 +20,10 @@
     "eslint-config-airbnb-base": "^13.2.0",
     "eslint-plugin-import": "^2.21.2"
   },
+  "engines": {
+    "node": "10.x",
+    "npm": "6.x"
+  },
   "scripts": {
     "start": "nodemon -e js,graphql -w . -w .env app.js",
     "test": "echo \"Error: no test specified\" && exit 1"

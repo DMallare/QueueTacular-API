@@ -27,6 +27,8 @@ connect.then(
 // Creating Apollo server.
 const server = new ApolloServer({
   schema,
+  playground: true,
+  introspection: true,
 });
 
 // Creating express app.
@@ -39,6 +41,8 @@ app.use('*', cors());
 // Connecting express app with Apollo.
 server.applyMiddleware({ app });
 
-const PORT = process.env.API_SERVER_PORT || 4000;
+const PORT = process.env.PORT || 4000;
 // Start Server.
-app.listen({ port: PORT }, () => console.log(`Server ready at http://localhost:${PORT}${server.graphqlPath}`));
+app.listen({ port: PORT }, () =>
+  console.log(`Server ready at http://localhost:${PORT}${server.graphqlPath}`),
+);
