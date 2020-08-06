@@ -14,7 +14,6 @@ const queueSchema = new Schema(
       type: String,
       enum: ['Open', 'Closed'],
       default: 'Open',
-      required: true,
     },
     owner: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     description: String,
@@ -28,7 +27,6 @@ const queueSchema = new Schema(
   },
   { timestamps: true },
 );
-
 
 const Queue = mongoose.model('Queue', queueSchema);
 module.exports = Queue;
