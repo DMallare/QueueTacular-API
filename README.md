@@ -40,6 +40,11 @@ as the ability to limit the number of people that can be enqueued at any time.</
 
 #### Makes Create component dynamic (Tim)
 
+- Code found in `src/views/Create.js`
+
+See the screenshot below:
+![Create Component](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-API/blob/master/readme_screenshots/iter1_create.JPG)
+
 #### Designs MyCreatedQueues, QueueMultiview, InQueue, QueueMini components (Zack)
 
 #### Makes Join a dynamic component and adds search bar (Nachiket)
