@@ -47,6 +47,13 @@ See the screenshot below:
 
 #### Designs MyCreatedQueues, QueueMultiview, InQueue, QueueMini components (Zack)
 
+- Code throughout components of corresponding names
+- Set state, created functions, and wrote render methods etc. to build the components needed to display queues, both that a user has joined and created. With windows that appear and close out, etc. (I also made the logo harhar)
+
+See screenshot below:
+![Dashboard With Expanded Create Component](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-API/blob/master/readme_screenshots/iter2_create_full.jpg)
+![List of queues, clickable to open expanded view](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-API/blob/master/readme_screenshots/iter2_createdqueues.jpg)
+
 #### Makes Join a dynamic component and adds search bar (Nachiket)
 
 - Code found in `src/views/join.js`

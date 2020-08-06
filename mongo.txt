@@ -1,0 +1,6 @@
+heroku config:set DB_URL=mongodb+srv://issue_tracker_user:zHNcEQM8pt5evm0t@cluster0.imy3p.mongodb.net/issuetracker?retryWrites=true&w=majority
+
+
+# issue_tracker_user = zHNcEQM8pt5evm0t
+
+jwt secret: secretIssues
