@@ -52,7 +52,7 @@ as the ability to limit the number of people that can be enqueued at any time.</
 
 See the screenshots below:
 
-![Join component user not logged in](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-API/blob/master/readme_screenshots/iter2_dashboard_notloggedin.JPG)
+![Join component user not logged in](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-API/blob/master/readme_screenshots/iter2_JoinButtonDisabled.JPG)
 
 ![Join component user logged in](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-API/blob/master/readme_screenshots/iter2_Join_SearchBar_UserLoggedIn.JPG)
 
