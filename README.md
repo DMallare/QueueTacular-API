@@ -43,7 +43,7 @@ as the ability to limit the number of people that can be enqueued at any time.</
 - Code found in `src/views/Create.js`
 
 See the screenshot below:
-![Create Component](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-API/blob/master/readme_screenshots/iter1_create.JPG)
+![Create Component](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-API/blob/master/readme_screenshots/iter2_create.JPG)
 
 #### Designs MyCreatedQueues, QueueMultiview, InQueue, QueueMini components (Zack)
 
