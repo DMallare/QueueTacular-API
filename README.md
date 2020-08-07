@@ -45,7 +45,9 @@ their queue with other metrics such a limit to the number of people in the queue
   [`Edit.js`](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI/blob/master/src/views/Edit.js).
 
 Screenshots:
-![Create component page](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-API/blob/master/readme_screenshots/iter2_create.JPG)
+
+Create component page
+![Create component page](/readme_screenshots/iter2_create.JPG)
 
 #### Designs CreatedQueue, CreatedQueues, Expandable, ExpandableTable, QueueMultiview, InQueue, QueueMini components (Zack)
 
@@ -59,13 +61,17 @@ Screenshots:
 
 Screenshots:
 
+Dashboard with ExpandableTable component
 ![Dashboard with ExpandableTable component](/readme_screenshots/iter2_dashboard_create_full.jpg)
 
+List of queues clickable to open Expandable component
 ![List of queues clickable to open Expandable component](/readme_screenshots/iter2_dashboard_createdqueues.jpg)
 
 #### Design Queue-tacular Logo (Zack)
 
 Screenshots:
+
+Dashboard logo
 
 ![Dashboard logo](/readme_screenshots/iter2_dashboard_logo.JPG)
 
@@ -79,9 +85,11 @@ Screenshots:
 
 Screenshots:
 
-![Join component user not logged in](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-API/blob/master/readme_screenshots/iter2_JoinButtonDisabled.JPG)
+Join component user not logged in
+![Join component user not logged in](/readme_screenshots/iter2_JoinButtonDisabled.JPG)
 
-![Join component user logged in](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-API/blob/master/readme_screenshots/iter2_Join_SearchBar_UserLoggedIn.JPG)
+Join component user logged in
+![Join component user logged in](/readme_screenshots/iter2_Join_SearchBar_UserLoggedIn.JPG)
 
 #### Google login / logout (Danielle)
 
@@ -91,7 +99,10 @@ Screenshots:
   - A new User is created in the database with their credentials from Google
 - Handles when a user has not signed in (components are empty, so no data is displayed)
 
-  ![Logged out view](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-API/blob/master/readme_screenshots/iter2_dashboard_notloggedin.JPG)
+Screenshots:
+
+Logged out view
+![Logged out view](/readme_screenshots/iter2_dashboard_notloggedin.JPG)
 
 #### Display detailed information about queues user is in (Danielle)
 
@@ -104,7 +115,8 @@ Screenshots:
 
 Screenshots:
 
-![Queues user is in detailed information](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-API/blob/master/readme_screenshots/iter2_InQueue_components.JPG)
+Queues user is in detailed information
+![Queues user is in detailed information](/readme_screenshots/iter2_InQueue_components.JPG)
 
 #### Display detailed information about queues the user created (Tim)
 
