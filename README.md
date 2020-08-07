@@ -9,6 +9,11 @@
 
 ---
 
+## Heroku Links:
+
+[Space Force API on Heroku](https://queuetacular-api.herokuapp.com/graphql)
+[Space Force UI on Heroku](https://queuetacular-ui.herokuapp.com/)
+
 ## Link to UI:
 
 [Space Force UI](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI)
@@ -51,8 +56,8 @@ See the screenshot below:
 - Set state, created functions, and wrote render methods etc. to build the components needed to display queues, both that a user has joined and created. With windows that appear and close out, etc. (I also made the logo harhar)
 
 See screenshot below:
-![Dashboard With Expanded Create Component]()
-![List of queues, clickable to open expanded view]()
+![Dashboard With Expanded Create Component](/readme_screenshots/iter2_dashboard_create_full.jpg)
+![List of queues, clickable to open expanded view](/readme_screenshots/iter2_dashboard_createdqueues.jpg)
 
 #### Makes Join a dynamic component and adds search bar (Nachiket)
 
@@ -64,9 +69,9 @@ See screenshot below:
 
 See the screenshots below:
 
-![Join component user not logged in](/readme_screenshots/iter2_dashboard_create_full.jpg)
+![Join component user not logged in](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-API/blob/master/readme_screenshots/iter2_JoinButtonDisabled.JPG)
 
-![Join component user logged in](/readme_screenshots/iter2_dashboard_createdqueues.jpg)
+![Join component user logged in](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-API/blob/master/readme_screenshots/iter2_Join_SearchBar_UserLoggedIn.JPG)
 
 #### Google login / logout (Danielle)
 
