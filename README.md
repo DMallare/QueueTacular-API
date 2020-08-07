@@ -16,18 +16,18 @@
 
 ## Link to UI:
 
-[Space Force UI](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI)
+[Space Force Group Project UI](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI)
 
 ## Project Summary:
 
-<p> Queue-tacular allows users to join a queue with the click of a button and provides
-the "queuee" with real time info on their current status while waiting. Can't stare
+<p> Queue-tacular lets users join queues with the click of a button and provides
+users with real time information about their status in the queue. Don't have time to stare
 at your phone or computer while waiting for your turn? No problem! Queue-tacular will email
 you when its your turn.</p>
 
-<p> Users are also able to create their own queues for others to join. Queue-tacular gives
-you the ability cutomize your queue with a title, description, and other metrics to manage your queue such
-as the ability to limit the number of people that can be enqueued at any time.</p>
+<p> Users can also create their own queues for others to join. Queue-tacular gives
+you the ability cutomize your queue with a title, description, and other metrics such
+a number to limit the number of people that can be enqueued at any time.</p>
 
 ## Iter 2.0:
 
@@ -38,36 +38,43 @@ as the ability to limit the number of people that can be enqueued at any time.</
 
 #### Lifts all Dashboard Component state to top level App component (Danielle, Tim, Zack)
 
-- Code found in `src/layouts/Admin.js`
-- Migrates all Dashboard component state including items user is in, queues they are in,
-  created queues, etc., to top level App component
+- Code found in [`Admin.js`](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI/blob/master/src/layouts/Admin.js)
+- Migrates all Dashboard component state including items user is in, queues they are in, created queues, etc., to top level App component.
 - Passes relevant data as props to all child components including CreatesQueues, QueueMultiview, Join, etc.
 
-#### Makes Create component dynamic (Tim)
+#### Makes Create and Edit components dynamic (Tim)
 
-- Code found in `src/views/Create.js`
+- Code found in [`Create.js`](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI/blob/master/src/views/Create.js),
+  [`Edit.js`](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI/blob/master/src/views/Edit.js).
 
 See the screenshot below:
 ![Create Component](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-API/blob/master/readme_screenshots/iter2_create.JPG)
 
-#### Designs MyCreatedQueues, QueueMultiview, InQueue, QueueMini components (Zack)
+#### Designs CreatedQueue, CreatedQueues, Expandable, ExpandableTable, QueueMultiview, InQueue, QueueMini components (Zack)
 
-- Code throughout components of corresponding names
-- Set state, created functions, and wrote render methods etc. to build the components needed to display queues, both that a user has joined and created. With windows that appear and close out, etc. (I also made the logo harhar)
+- Code found in [`CreatedQueue.js`](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI/blob/master/src/components/CreatedQueue.js), [`CreatedQueues.js`](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI/blob/master/src/components/CreatedQueues.js),
+  [`Expandable.js`](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI/blob/master/src/components/Expandable.js),
+  [`ExpandableTable.js`](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI/blob/master/src/components/ExpandableTable.js),
+  [`InQueue.js`](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI/blob/master/src/components/InQueue.js),
+  [`InQueueMini.js`](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI/blob/master/src/components/InQueueMini.js),
+- Set state, created functions, and wrote render methods to build the components needed to display queues, queues that a user has joined and created.
+- Added functionalities to expand and contract windows, change cursor on hover, open and close windows, and toggle table view.
 
-See screenshot below:
-![Dashboard With Expanded Create Component](/readme_screenshots/iter2_dashboard_create_full.jpg)
-![List of queues, clickable to open expanded view](/readme_screenshots/iter2_dashboard_createdqueues.jpg)
+<b>Screenshots:<b>
+
+![Dashboard with ExpandableTable component](/readme_screenshots/iter2_dashboard_create_full.jpg)
+
+![List of queues clickable to open Expandable component](/readme_screenshots/iter2_dashboard_createdqueues.jpg)
 
 #### Makes Join a dynamic component and adds search bar (Nachiket)
 
-- Code found in `src/views/join.js`
+- Code found in [`src/views/join.js`](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI/blob/master/src/views/Join.js).
 - Implements search bar so user can search for a queue by title
 - Displays queues brought up by search bar
 - Creates a "Join Queue" button that is disabled if a valid queue title is not found or the user is not logged in
 - Join Queue button creates a new Item in the Items collection of the datatbase corresponding to the logged in user
 
-See the screenshots below:
+<b>Screenshots:<b>
 
 ![Join component user not logged in](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-API/blob/master/readme_screenshots/iter2_JoinButtonDisabled.JPG)
 
@@ -75,7 +82,7 @@ See the screenshots below:
 
 #### Google login / logout (Danielle)
 
-- Created a Login component - found in `src/components/Login.js`
+- Code found in [`src/components/Login.js`](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI/blob/master/src/components/Login.js).
 - Utilized library `react-google-login` to implement signing in/out with Google account
 - Handles when a user logs in with a Google account for the first time
   - A new User is created in the database with their credentials from Google
@@ -87,15 +94,22 @@ See the screenshots below:
 
 #### Display detailed information about queues user is in (Danielle)
 
-- Queries the database to grab all queues the user is in
-- Displays each queue user is in (code in `src/components/QueueMultiview.js`)
-- Displays detailed information about each queue (code in `src/components/InQueue.js` )
+- Queries the database to grab all queues the user is in and displays each queue user is in.
+- Code found in [`QueueMultiview.js`](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI/blob/master/src/components/QueueMultiview.js).
+- Displays detailed information about each queue
+- Code found in [`src/components/InQueue.js`](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI/blob/master/src/components/InQueue.js)
   - Progress bar dynamically rendered to show where user is in relation to their place in line.
   - Queue title, description, the user's item description for that queue, and when the queue will close is displayed
 
 See the screenshot below:
 
 ![Queues user is in detailed information](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-API/blob/master/readme_screenshots/iter2_InQueue_components.JPG)
+
+#### Display detailed information about queues the user created (Tim)
+
+- Queries the database to grab the queues the user created and displays detailed information about each queue and item.
+- Code found in [`CreatedQueue.js`](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI/blob/master/src/components/CreatedQueue.js), [`CreatedQueueMini.js`](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI/blob/master/src/components/CreatedQueueMini.js),[`CreatedQueues.js`](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI/blob/master/src/components/CreatedQueues.js),
+  [`ExpandableTable.js`](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI/blob/master/src/components/ExpandableTable.js),
 
 </details>
 
