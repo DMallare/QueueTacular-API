@@ -44,7 +44,7 @@ their queue with other metrics such a limit to the number of people in the queue
 - Code found in [`Create.js`](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI/blob/master/src/views/Create.js),
   [`Edit.js`](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI/blob/master/src/views/Edit.js).
 
-<b>Screenshots<b>:
+Screenshots:
 ![Create component page](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-API/blob/master/readme_screenshots/iter2_create.JPG)
 
 #### Designs CreatedQueue, CreatedQueues, Expandable, ExpandableTable, QueueMultiview, InQueue, QueueMini components (Zack)
@@ -57,7 +57,7 @@ their queue with other metrics such a limit to the number of people in the queue
 - Set state, created functions, and wrote render methods to build the components needed to display queues, queues that a user has joined and created.
 - Added functionalities to expand and contract windows, change cursor on hover, open and close windows, and toggle table view.
 
-<b>Screenshots:<b>
+Screenshots:
 
 ![Dashboard with ExpandableTable component](/readme_screenshots/iter2_dashboard_create_full.jpg)
 
@@ -65,7 +65,8 @@ their queue with other metrics such a limit to the number of people in the queue
 
 #### Design Queue-tacular Logo (Zack)
 
-<b>Screenshots:<b>
+Screenshots:
+
 ![Dashboard logo](/readme_screenshots/iter2_dashboard_logo.JPG)
 
 #### Makes Join a dynamic component and adds search bar (Nachiket)
@@ -76,7 +77,7 @@ their queue with other metrics such a limit to the number of people in the queue
 - Creates a "Join Queue" button that is disabled if a valid queue title is not found or the user is not logged in
 - Join Queue button creates a new Item in the Items collection of the datatbase corresponding to the logged in user
 
-<b>Screenshots:<b>
+Screenshots:
 
 ![Join component user not logged in](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-API/blob/master/readme_screenshots/iter2_JoinButtonDisabled.JPG)
 
@@ -101,7 +102,7 @@ their queue with other metrics such a limit to the number of people in the queue
   - Progress bar dynamically rendered to show where user is in relation to their place in line.
   - Queue title, description, the user's item description for that queue, and when the queue will close is displayed
 
-See the screenshot below:
+Screenshots:
 
 ![Queues user is in detailed information](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-API/blob/master/readme_screenshots/iter2_InQueue_components.JPG)
 
