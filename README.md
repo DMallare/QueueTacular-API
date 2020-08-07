@@ -66,7 +66,7 @@ their queue with other metrics such a limit to the number of people in the queue
 #### Design Queue-tacular Logo (Zack)
 
 <b>Screenshots:<b>
-![Dashboard logo](/readme_screenshots/iter2_dashboard_logo.jpg)
+![Dashboard logo](/readme_screenshots/iter2_dashboard_logo.JPG)
 
 #### Makes Join a dynamic component and adds search bar (Nachiket)
 
@@ -88,9 +88,7 @@ their queue with other metrics such a limit to the number of people in the queue
 - Utilized library `react-google-login` to implement signing in/out with Google account
 - Handles when a user logs in with a Google account for the first time
   - A new User is created in the database with their credentials from Google
-- Handles when a user has not signed in
-
-  - components are empty - no data is displayed (see the screenshot below)
+- Handles when a user has not signed in (components are empty, so no data is displayed)
 
   ![Logged out view](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-API/blob/master/readme_screenshots/iter2_dashboard_notloggedin.JPG)
 
