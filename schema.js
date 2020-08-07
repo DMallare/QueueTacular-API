@@ -53,6 +53,13 @@ schemaComposer.Mutation.addFields({
   queueRemoveById: QueueTC.getResolver('removeById'),
   queueRemoveOne: QueueTC.getResolver('removeOne'),
   queueRemoveMany: QueueTC.getResolver('removeMany'),
+  // queueAddItem: QueueTC.addResolver({
+  //   name: 'queueAddItem',
+  //   type: QueueTC,
+  //   args: { queueId: 'MongoID!', valueToPush: "Item" },
+  //   resolve: async  (source, args, context, info) => {
+
+  //  })
 
   itemCreateOne: ItemTC.getResolver('createOne'),
   itemCreateMany: ItemTC.getResolver('createMany'),
