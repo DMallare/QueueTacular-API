@@ -20,14 +20,11 @@
 
 ## Project Summary:
 
-<p> Queue-tacular lets users join queues with the click of a button and provides
-users with real time information about their status in the queue. Don't have time to stare
-at your phone or computer while waiting for your turn? No problem! Queue-tacular will email
-you when its your turn.</p>
-
-<p> Users can also create their own queues for others to join. Queue-tacular gives
-you the ability cutomize your queue with a title, description, and other metrics such
-a number to limit the number of people that can be enqueued at any time.</p>
+<p> Queue-tacular lets users join and create queues with the click of a button. Both users
+and creators of queues have access to real time information about their queues. Don't have
+time to stare at your phone or computer while waiting for your turn? No problem!
+Queue-tacular will email you when its your turn. Queue-tacular also lets users customize
+their queue with other metrics such a limit to the number of people in the queue.</p>
 
 ## Iter 2.0:
 
@@ -107,9 +104,11 @@ See the screenshot below:
 
 #### Display detailed information about queues the user created (Tim)
 
-- Queries the database to grab the queues the user created and displays detailed information about each queue and item.
+- Queries the database to grab the queues the user created.
+- Selects queue to come into view based on the id of the queue by lifting the state of the queue clicked on.
 - Code found in [`CreatedQueue.js`](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI/blob/master/src/components/CreatedQueue.js), [`CreatedQueueMini.js`](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI/blob/master/src/components/CreatedQueueMini.js),[`CreatedQueues.js`](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI/blob/master/src/components/CreatedQueues.js),
-  [`ExpandableTable.js`](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI/blob/master/src/components/ExpandableTable.js),
+  [`ExpandableTable.js`](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI/blob/master/src/components/ExpandableTable.js).
+  - Replaces fake data with queried stored data and optimizes outputs with map and loops methods.
 
 </details>
 
