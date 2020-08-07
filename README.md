@@ -44,8 +44,8 @@ their queue with other metrics such a limit to the number of people in the queue
 - Code found in [`Create.js`](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI/blob/master/src/views/Create.js),
   [`Edit.js`](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI/blob/master/src/views/Edit.js).
 
-See the screenshot below:
-![Create Component](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-API/blob/master/readme_screenshots/iter2_create.JPG)
+<b>Screenshots<b>:
+![Create component page](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-API/blob/master/readme_screenshots/iter2_create.JPG)
 
 #### Designs CreatedQueue, CreatedQueues, Expandable, ExpandableTable, QueueMultiview, InQueue, QueueMini components (Zack)
 
@@ -63,9 +63,14 @@ See the screenshot below:
 
 ![List of queues clickable to open Expandable component](/readme_screenshots/iter2_dashboard_createdqueues.jpg)
 
+#### Design Queue-tacular Logo (Zack)
+
+<b>Screenshots:<b>
+![Dashboard logo](/readme_screenshots/iter2_dashboard_logo.jpg)
+
 #### Makes Join a dynamic component and adds search bar (Nachiket)
 
-- Code found in [`src/views/join.js`](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI/blob/master/src/views/Join.js).
+- Code found in [`Join.js`](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI/blob/master/src/views/Join.js).
 - Implements search bar so user can search for a queue by title
 - Displays queues brought up by search bar
 - Creates a "Join Queue" button that is disabled if a valid queue title is not found or the user is not logged in
@@ -79,7 +84,7 @@ See the screenshot below:
 
 #### Google login / logout (Danielle)
 
-- Code found in [`src/components/Login.js`](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI/blob/master/src/components/Login.js).
+- Code found in [`Login.js`](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI/blob/master/src/components/Login.js).
 - Utilized library `react-google-login` to implement signing in/out with Google account
 - Handles when a user logs in with a Google account for the first time
   - A new User is created in the database with their credentials from Google
@@ -93,8 +98,8 @@ See the screenshot below:
 
 - Queries the database to grab all queues the user is in and displays each queue user is in.
 - Code found in [`QueueMultiview.js`](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI/blob/master/src/components/QueueMultiview.js).
-- Displays detailed information about each queue
-- Code found in [`src/components/InQueue.js`](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI/blob/master/src/components/InQueue.js)
+- Displays detailed information about each queue.
+- Code found in [`InQueue.js`](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI/blob/master/src/components/InQueue.js)
   - Progress bar dynamically rendered to show where user is in relation to their place in line.
   - Queue title, description, the user's item description for that queue, and when the queue will close is displayed
 
