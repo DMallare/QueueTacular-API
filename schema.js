@@ -9,14 +9,19 @@ const QueueTC = composeWithMongoose(Queue, {});
 const ItemTC = composeWithMongoose(Item, {});
 const UserTC = composeWithMongoose(User, {});
 
-// QueueTC.addResolver({
-//   name: 'searchByTitle',
-//   args: { title: 'String' },
-//   type: QueueTC,
-//   resolve: async ({ source, args }) => {
-//     if (args.title) filter.$text = { $search: args.title };
-//   },
-// });
+QueueTC.addResolver({
+  name: 'pushToItems',
+  type: QueueTC,
+  args: { queueId: 'MongoID!', record: 'UpdateByIdItemInput!' },
+  resolve: async ({ source, args, context, info }) => {
+    const queue = await Queue.update(
+      { _id: args.queueId },
+      { $push: { items: args.record } },
+    );
+    if (!queue) return null;
+    return Queue.findOne({ _id: args.queueId });
+  },
+});
 
 schemaComposer.Query.addFields({
   queueById: QueueTC.getResolver('findById'),
@@ -53,6 +58,9 @@ schemaComposer.Mutation.addFields({
   queueRemoveById: QueueTC.getResolver('removeById'),
   queueRemoveOne: QueueTC.getResolver('removeOne'),
   queueRemoveMany: QueueTC.getResolver('removeMany'),
+
+  // Custom resolver to push new item to items array
+  queuePushToItems: QueueTC.getResolver('pushToItems'),
 
   itemCreateOne: ItemTC.getResolver('createOne'),
   itemCreateMany: ItemTC.getResolver('createMany'),
