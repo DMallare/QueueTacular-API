@@ -12,14 +12,14 @@ const UserTC = composeWithMongoose(User, {});
 QueueTC.addResolver({
   name: 'pushToItems',
   type: QueueTC,
-  args: { queueId: 'MongoID!', record: 'UpdateByIdItemInput!' },
+  args: { _id: 'MongoID!', record: 'UpdateByIdItemInput!' },
   resolve: async ({ source, args, context, info }) => {
     const queue = await Queue.update(
-      { _id: args.queueId },
+      { _id: args._id },
       { $push: { items: args.record } },
     );
     if (!queue) return null;
-    return Queue.findOne({ _id: args.queueId });
+    return Queue.findOne({ _id: args._id });
   },
 });
 
