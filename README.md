@@ -26,6 +26,27 @@ time to stare at your phone or computer while waiting for your turn? No problem!
 Queue-tacular will email you when its your turn. Queue-tacular also lets users customize
 their queue with other metrics such a limit to the number of people in the queue.</p>
 
+## Iter 3.0:
+
+<details>
+  <summary>Click to Expand Iter3.0</summary>
+
+### Summary of Work Completed:
+
+#### UI updates
+
+#### Updates display for all Dashboard components (Danille, Tim, Zack)
+
+#### Updates Table View for ExpandableTable (Tim)
+
+#### Integrates buttons for ExpandableTable (Danielle)
+
+#### Email server to send user notifications (Danielle)
+
+#### Disables functionalities for users not logged in (Danielle)
+
+</details>
+
 ## Iter 2.0:
 
 <details>
