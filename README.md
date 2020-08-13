@@ -40,6 +40,13 @@ Screenshots:
 User not logged in
 ![User not logged in](/readme_screenshots/iter3_UsedNotLoggedIn.JPG)
 
+#### Updates Dashboard (Zack, Tim, Danielle)
+
+Screenshots:
+
+Dashboard unexpanded
+![Dashboard unexpanded](/readme_screenshots/iter3_Dashboard_Unexpanded.JPG)
+
 #### Updates Table View for CreatedQueue and CreatedQueues dynamically (Tim)
 
 - Added new type of query to pull list of users from created queues and in turn create a list of lists of user information.
@@ -90,6 +97,9 @@ Screenshots:
 Disabled login
 ![Disabled login](/readme_screenshots/iter3_UsedNotLoggedIn.JPG)
 
+Disabled Create page
+![Disabled Create page](/readme_screenshots/iter3_CreateDisabled.JPG)
+
 #### Updates Join Component to validate and notify users (Nachiket):
 
 - Component found in [`Join.js`](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI/blob/12706a9944682ab15b0ef48f193acb950b608930/src/views/Join.js)
@@ -104,6 +114,8 @@ Join component page
 ![Join component page](/readme_screenshots/iter3_JoinQueue.png)
 
 #### Fixing Erroneous Merges/Reverts (Zack)
+
+- The real champ for fixing screw ups by teammates.
 
 </details>
 
