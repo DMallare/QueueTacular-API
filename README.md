@@ -38,7 +38,7 @@ their queue with other metrics such a limit to the number of people in the queue
 #### Updates Table View for CreatedQueue and CreatedQueues dynamically (Tim)
 
 - Added new type of query to pull list of users from created queues and in turn create a list of lists of user information.
-- Implemented dynamic lookup by
+- Implemented dynamic lookup and map to allocate username and user emails to hover displays and tables
 
 Component found in [`ExpandableTable.js`](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI/blob/master/src/components/ExpandableTable.js), [`Admin.js`](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI/blob/master/src/layouts/Admin.js)
 
@@ -46,6 +46,9 @@ Screenshot:
 
 Expandable table
 ![Expandable table](/readme_screenshots/iter3_ExpandableTable.JPG)
+
+Hover display
+![Hover display](/readme_screenshots/iter3_HoverDisplay.png)
 
 #### Integrates buttons for ExpandableTable (Danielle)
 
