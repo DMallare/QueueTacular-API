@@ -47,6 +47,13 @@ Screenshots:
 Dashboard unexpanded
 ![Dashboard unexpanded](/readme_screenshots/iter3_Dashboard_Unexpanded.JPG)
 
+#### Deployment, Connecting Components Dynamically, Visual Bootstrap/ CSS,  Routing, About Page (Zack)
+
+- Connected components across the app to dynamic database displays by manipulating state and props.
+- Fine tuned every component's visual styling.
+- Routed to Edit page, About page, and set up Routes.js
+- Wrote and created the About page.
+
 #### Updates Table View for CreatedQueue and CreatedQueues dynamically (Tim)
 
 - Added new type of query to pull list of users from created queues and in turn create a list of lists of user information.
