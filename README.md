@@ -33,9 +33,7 @@ their queue with other metrics such a limit to the number of people in the queue
 
 ### Summary of Work Completed:
 
-#### UI updates
-
-#### Updates display for all Dashboard components (Danille, Tim, Zack)
+#### Updates Dashboard display for User Not Logged-in (Zack)
 
 #### Updates Table View for ExpandableTable (Tim)
 
@@ -43,7 +41,22 @@ their queue with other metrics such a limit to the number of people in the queue
 
 #### Email server to send user notifications (Danielle)
 
-#### Disables functionalities for users not logged in (Danielle)
+#### Disables functionalities for users not logged in (Danielle):
+
+#### Updates Join Component to validate and notify users (Nachiket):
+
+- Cound found in [`Join.js`](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI/blob/12706a9944682ab15b0ef48f193acb950b608930/src/views/Join.js)
+- Completes join queue functionality to work with backend
+- Adds success and failure messages after joing queue
+- Validates user joining queue for whether they're already in queue and logged in
+- Adds custom description for user joining queue
+
+Screenshots:
+
+Join component page
+![Join component page](/readme_screenshots/iter3_JoinQueue.png)
+
+#### Fixing Erroneous Merges/Reverts (Zack)
 
 </details>
 
