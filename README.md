@@ -35,6 +35,11 @@ their queue with other metrics such a limit to the number of people in the queue
 
 #### Updates Dashboard display for User Not Logged-in (Zack)
 
+Screenshots:
+
+User not logged in
+![User not logged in](/readme_screenshots/iter3_UsedNotLoggedIn.JPG)
+
 #### Updates Table View for CreatedQueue and CreatedQueues dynamically (Tim)
 
 - Added new type of query to pull list of users from created queues and in turn create a list of lists of user information.
@@ -42,13 +47,25 @@ their queue with other metrics such a limit to the number of people in the queue
 
 Component found in [`ExpandableTable.js`](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI/blob/master/src/components/ExpandableTable.js), [`Admin.js`](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI/blob/master/src/layouts/Admin.js)
 
-Screenshot:
+Screenshots:
 
 Expandable table
 ![Expandable table](/readme_screenshots/iter3_ExpandableTable.JPG)
 
 Hover display
 ![Hover display](/readme_screenshots/iter3_HoverDisplay.png)
+
+#### Adds functionality for Edit Page (Tim)
+
+Component found in [`Edit.js`](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI/blob/master/src/views/Edit.js)
+
+- Added Edit page for users to edit information. Comes with pre-populated information from the queue.
+- Takes in information from the created queues so that only owner has access.
+
+Screenshots:
+
+Edit component page:
+![Edit component page](/readme_screenshots/iter3_EditPage.JPG)
 
 #### Integrates buttons for ExpandableTable (Danielle)
 
