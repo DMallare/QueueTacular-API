@@ -39,13 +39,25 @@ their queue with other metrics such a limit to the number of people in the queue
 
 #### Integrates buttons for ExpandableTable (Danielle)
 
-#### Email server to send user notifications (Danielle)
+- Allows queue owner to mark a user as Serving or Completed on click of their respective buttons
+- Marks the queue item as Serving/ Completed and makes the change to the item in the queues items list
+- When user marks a queue partcipant as "Serving" an email is sent to that user to indicate it is their turn
+
+#### Uses EmailJS to send email notifications (Danielle)
+
+- Component found in `Email.js`
+- Works with EmailJs to create custom, personalized email templates
+- Sends emails to queue partiicipants when it is their turn in the queue
 
 #### Disables functionalities for users not logged in (Danielle):
 
+- Disables certain features of the Dashboard when user is not logged in and adds content to prompt the user to login
+- Added prompt in Create component to prompt user to sign in
+- Added sign in button to the prompt that allows the user to sign in and see the respective content.
+
 #### Updates Join Component to validate and notify users (Nachiket):
 
-- Cound found in [`Join.js`](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI/blob/12706a9944682ab15b0ef48f193acb950b608930/src/views/Join.js)
+- Component found in [`Join.js`](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI/blob/12706a9944682ab15b0ef48f193acb950b608930/src/views/Join.js)
 - Completes join queue functionality to work with backend
 - Adds success and failure messages after joing queue
 - Validates user joining queue for whether they're already in queue and logged in

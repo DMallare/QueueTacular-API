@@ -87,7 +87,7 @@ const Nachiket = new User({
 const userDB = [David, MKBHD, Billie, Winnie, Tim, Danielle, Zack, Nachiket];
 
 const itemOne = new Item({
-  status: 'Removed',
+  status: 'Waiting',
   user: MKBHD,
   wait: 25,
   description: 'queue item description one.',
@@ -101,7 +101,7 @@ const itemTwo = new Item({
 });
 
 const itemThree = new Item({
-  status: 'Serving',
+  status: 'Waiting',
   user: Winnie,
   wait: 999,
   description: 'queue item description three',
@@ -207,7 +207,7 @@ const Doctor = new Queue({
 
 const Disneyland = new Queue({
   title: 'Disneyland',
-  status: 'Closed',
+  status: 'Open',
   owner: Danielle,
   description:
     'This is the general ticketing queue for Disneyland - no fast passes. The lines for all rides are too long!',
