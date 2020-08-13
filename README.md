@@ -35,7 +35,17 @@ their queue with other metrics such a limit to the number of people in the queue
 
 #### Updates Dashboard display for User Not Logged-in (Zack)
 
-#### Updates Table View for ExpandableTable (Tim)
+#### Updates Table View for CreatedQueue and CreatedQueues dynamically (Tim)
+
+- Added new type of query to pull list of users from created queues and in turn create a list of lists of user information.
+- Implemented dynamic lookup by
+
+Component found in [`ExpandableTable.js`](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI/blob/master/src/components/ExpandableTable.js), [`Admin.js`](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI/blob/master/src/layouts/Admin.js)
+
+Screenshot:
+
+Expandable table
+![Expandable table](/readme_screenshots/iter3_ExpandableTable.JPG)
 
 #### Integrates buttons for ExpandableTable (Danielle)
 
@@ -45,7 +55,7 @@ their queue with other metrics such a limit to the number of people in the queue
 
 #### Uses EmailJS to send email notifications (Danielle)
 
-- Component found in `Email.js`
+- Component found in [`Email.js`](https://github.ccs.neu.edu/NEU-CS5610-SU20/GroupProject-SpaceForce-UI/blob/master/src/components/Email.js)
 - Works with EmailJs to create custom, personalized email templates
 - Sends emails to queue partiicipants when it is their turn in the queue
 
@@ -54,6 +64,11 @@ their queue with other metrics such a limit to the number of people in the queue
 - Disables certain features of the Dashboard when user is not logged in and adds content to prompt the user to login
 - Added prompt in Create component to prompt user to sign in
 - Added sign in button to the prompt that allows the user to sign in and see the respective content.
+
+Screenshots:
+
+Disabled login
+![Disabled login](/readme_screenshots/iter3_UsedNotLoggedIn.JPG)
 
 #### Updates Join Component to validate and notify users (Nachiket):
 
