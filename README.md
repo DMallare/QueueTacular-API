@@ -35,10 +35,15 @@ their queue with other metrics such a limit to the number of people in the queue
 
 #### Updates Dashboard display for User Not Logged-in (Zack)
 
+- Various edits to add more details and response based on user inputs
+
 Screenshots:
 
 User not logged in
 ![User not logged in](/readme_screenshots/iter3_UsedNotLoggedIn.JPG)
+
+Detailed user queue
+![Detailed user queue](readme_screenshots/iter3_DetailedUserQueue.JPG)
 
 #### Updates Dashboard (Zack, Tim, Danielle)
 
